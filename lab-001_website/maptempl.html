@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>News Website</title>
+<title>Lambda Lab</title>
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/text.css" />
 <link rel="stylesheet" href="css/960_24_col.css" />
 <link rel="stylesheet" href="css/meetup_base.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("#apigw").load("http://mycors.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt");
+  });
+</script>
 </head>
 
 <body>
   <div class="container_24">
     <h2>
-      S3 Simple Static Web Site Example
+      Serverless Lab
     </h2>
     <div class="grid_24">
       <p style="">
@@ -20,8 +26,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="cors.html">CORS</a></li>
         <li><a href="apigw.html">API Gateway</a></li>
-        <li><a href="page1.html">Page 3</a></li>
-        <li><a href="page2.html">Page 4</a></li>
+        <li><a href="maptempl.html">Mapping Template</a></li>
+        <li><a href="kinesis.html">Kinesis</a></li>
       </ul>
       </p>
       <hr/>
@@ -29,10 +35,11 @@
 
     <div class="grid_24 content">
       <p>
-        Lab Session
+        Mapping Template
       </p>
-    </div>
 
+      <button>Get External Content</button>
+    </div>
 
     <!-- end .grid_24 -->
     <div class="grid_24">
