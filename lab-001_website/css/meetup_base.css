@@ -24,6 +24,13 @@ li a:hover {
 }
 
 
+.homeTitle {
+  text-align: left;
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
 .content {
 	 text-align: center;
    font-size: 700%;
