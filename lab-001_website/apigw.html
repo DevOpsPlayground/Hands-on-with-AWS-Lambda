@@ -8,14 +8,6 @@
 <link rel="stylesheet" href="css/960_24_col.css" />
 <link rel="stylesheet" href="css/meetup_base.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $("button").click(function(){
-        $("#apigw").load("https://v8xbpo500d.execute-api.us-west-2.amazonaws.com/dev/numbers/");
-    });
-});
-
-</script>
 </head>
 
 <body>
@@ -35,12 +27,15 @@ $(document).ready(function(){
       </p>
       <hr/>
     </div>
-
+    <div class="grid_24 labStatus">
+      <p>
+      LAB NOT STARTED
+      </p>
+    </div>
     <div class="grid_24 content apigw">
       <p id="apigw">
         API Gateway
       </p>
-      <button>Get External Content</button>
     </div>
     <div class="grid_24" id="apigw">
     </div>

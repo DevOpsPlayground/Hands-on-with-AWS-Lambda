@@ -7,7 +7,14 @@
 <link rel="stylesheet" href="css/text.css" />
 <link rel="stylesheet" href="css/960_24_col.css" />
 <link rel="stylesheet" href="css/meetup_base.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("button").click(function(){
+          $("#s3_cors").load("http://mycors.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt");
+      });
+  });
+</script>
 </head>
 
 <body>
@@ -28,16 +35,14 @@
       <hr/>
     </div>
 
-    <div class="grid_24 labStatus">
+    <div class="grid_24 content s3_cors">
       <p>
-      LAB NOT STARTED
+        Cross Orign Resource Sharing
       </p>
-    </div>
 
-    <div class="grid_24 content">
-      <p>
-        Kinesis Streams
-      </p>
+      <button>Get External Content</button>
+    </div>
+    <div class="grid_24" id="s3_cors">
     </div>
 
     <!-- end .grid_24 -->

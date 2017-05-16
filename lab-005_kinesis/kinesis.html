@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Lambda Lab</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/text.css" />
+<link rel="stylesheet" href="css/960_24_col.css" />
+<link rel="stylesheet" href="css/meetup_base.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <div class="container_24">
+    <h2>
+      Serverless Lab
+    </h2>
+    <div class="grid_24">
+      <p style="">
+      <ul style="display: inline;  margin: 0; list-style-type: none;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cors.html">CORS</a></li>
+        <li><a href="apigw.html">API Gateway</a></li>
+        <li><a href="maptempl.html">Mapping Template</a></li>
+        <li><a href="kinesis.html">Kinesis</a></li>
+      </ul>
+      </p>
+      <hr/>
+    </div>
+
+    <div class="grid_24 content">
+      <p>
+        Kinesis Streams
+      </p>
+    </div>
+
+    <div class="grid_24">
+      <canvas id="myChart" width="300" height="300"></canvas>
+      <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              labels: ['Conservatives', 'Labour', 'SNP', 'LibDems', 'Greens'],
+              datasets: [{
+                  label: '# of Votes',
+                  data: [12, 19, 3, 5, 2],
+                  backgroundColor: [
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255,99,132,1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              },
+              title: {
+                  display: true,
+                  text: 'Election Results'
+              }
+          }
+      });
+      </script>
+    </div>
+
+    <!-- end .grid_24 -->
+    <div class="grid_24">
+      <hr/>
+      <p>
+        s3 Sample Static website
+      </p>
+    </div>
+  </div>
+</body>
+</html>

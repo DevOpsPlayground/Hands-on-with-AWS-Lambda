@@ -36,3 +36,10 @@ li a:hover {
    font-size: 700%;
    font-weight: bolder;
 }
+
+.labStatus {
+  text-align: center;
+  font-size: 300%;
+  font-weight: bolder;
+  color: red;
+}
