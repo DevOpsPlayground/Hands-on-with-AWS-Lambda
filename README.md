@@ -1,3 +1,5 @@
+https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda
+
 # Hands On Serverless Computing with Lambda
 
 The topics for this hands-on session will be AWS Lambda, function as a service (FaaS). During this Playground you will create a website hosted on AWS S3 using AWS Lambda and Amazon API Gateway to add dynamic functionality to the site.
