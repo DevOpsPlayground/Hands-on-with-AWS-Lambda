@@ -200,6 +200,8 @@ __AWS Services:__ S3, Lambda, API Gateway,
 cd lab-002_lambda
 ```
 
+1. Using 
+
 
 ```python
 from random import randint
