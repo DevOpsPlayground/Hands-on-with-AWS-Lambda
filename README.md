@@ -6,24 +6,22 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 
 ## Labs
 
-1. 001 - Build Status Website with s3 Bucket
+1. 001 - Build Static Website with s3 Bucket
 1. 002 - CORS - Sharing resources between s3 Buckets
 1. 003 - Web Services with Lambda (Python)
 1. 004 - Posting Data with Lambda
 1. 005 - Kinesis - Realtime Data Processing
 
+### Login
+
+__AWS Console:__ https://devopsplayground.signin.aws.amazon.com/console
+__Username:__ `<TBA>`
+__Password:__ `<TBA>`
 
 ### Prerequisites
-- [ ] AWS Account - S3, Lambda, API Gateway, DynamoDB, Kinesis
-- [ ] IAM Policies Setup
-- [ ] Checkout GitHub lab
-
-
-### IAM Policies
-
-The lab will need some IAM policies.
-- Create a role called __lambdaExecutionRole__
-- Lambda and Kinesis
+- Login to AWS account
+- Permissions to create S3 Buckets
+- Permissions to write and execute lambda functions
 
 ### Get code GitHub
 
@@ -32,7 +30,7 @@ git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
 
-### 001 - Build Status Website with s3 Bucket
+### 001 - Build Static Website with s3 Bucket
 
 __Goal:__ Create a static website using s3 bucket
 
@@ -44,9 +42,9 @@ cd lab-001_website
 
 1. Create s3 Bucket
 ```
-<your name>.meetup.ecs-digital.co.uk
+<your name>.playground11
 ```
-1. Upload files - Set Permissions Everyone (Read)/Make public
+1. Upload files from folder `lab-001_website` - Set Permissions Everyone (Read)/Make public
 1. Properties > Static website hosting
  - __Index document:__ index.html
  - __Error document:__ error.html
@@ -67,7 +65,7 @@ cd lab-002_cors
 
 1. Create a new s3 Buckets
 ```
-<your name>.cors.meetup.ecs-digital.co.uk
+<your name>.cors.playground11
 ```
 1. Upload the code from folder __lab-002_cors__. Remember to make the file public.
 1. Enable static website
