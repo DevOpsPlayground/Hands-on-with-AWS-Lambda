@@ -23,7 +23,7 @@ __Password:__ `<TBA>`
 - Permissions to create S3 Buckets
 - Permissions to write and execute lambda functions
 
-### Get code GitHub
+### Checkout code from GitHub
 
 ```bash
 git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
@@ -41,14 +41,27 @@ cd lab-001_website
 ```
 
 1. Create s3 Bucket
-```
-<your name>.playground11
-```
-1. Upload files from folder `lab-001_website` - Set Permissions Everyone (Read)/Make public
+ - __Name:__ `<your name>.playground11`
+ - __Region:__ `US West (Oregon)`
+ - Set Properties: Click 'Next'
+ - Set Permissions: Click 'Next'
+ - Review: Click 'Create Bucket'
+
+1. Upload files from folder `lab-001_website`
+  - __Select files__ (all file & folders), you will need to create subfolders manually in bucket.
+  - __Set Permissions__ Manage Group Permissions > Everyone (Read)/Make public
+  - Accept defaults, click 'Next'
+  - __Set Properties__ Accept defaults, click 'Upload'
+1. Create subfolder `css`
+  - Click 'Save'
+  - Upload remaining files from `css` folder same steps as 2.
 1. Properties > Static website hosting
+1. Select 'Use this bucket to host a Website'
  - __Index document:__ index.html
  - __Error document:__ error.html
+ - Click 'Save'
 1. Open the __Endpoint__ in a web browser.
+ - `http://<your name>.playground11.s3-website-us-west-2.amazonaws.com`
 1. Lab End.
 
 
