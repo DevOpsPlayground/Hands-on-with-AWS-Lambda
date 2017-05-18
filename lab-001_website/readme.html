@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Lambda Lab</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/text.css" />
+<link rel="stylesheet" href="css/960_24_col.css" />
+<link rel="stylesheet" href="css/meetup_base.css" />
+<link rel="stylesheet" href="css/markdown.css" />
+</head>
+
+<body>
+  <div class="container_24">
+    <h2 class="homeTitle">
+      Serverless Lab
+    </h2>
+    <div class="grid_24 nav">
+      <p>
+      <ul style="display: inline;  margin: 0; list-style-type: none;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cors.html">CORS</a></li>
+        <li><a href="apigw.html">API Gateway</a></li>
+        <li><a href="maptempl.html">Mapping Template</a></li>
+        <li><a href="kinesis.html">Kinesis</a></li>
+        <li><a href="README.md.html">Labs: README</a></li>
+      </ul>
+      </p>
+      <hr/>
+    </div>
+
+    <div class="grid_24 markdown-preview ">
+
+
+
+      <p><a href="https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda">https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda</a></p>
+      <h1 id="hands-on-serverless-computing-with-lambda">Hands On Serverless Computing with Lambda</h1>
+      <p>The topics for this hands-on session will be AWS Lambda, function as a service (FaaS). During this Playground you will create a website hosted on AWS S3 using AWS Lambda and Amazon API Gateway to add dynamic functionality to the site.</p>
+      <h2 id="labs">Labs</h2>
+      <ol>
+      <li>001 - Build Static Website with s3 Bucket</li>
+      <li>002 - CORS - Sharing resources between s3 Buckets</li>
+      <li>003 - Web Services with Lambda (Python)</li>
+      <li>004 - Posting Data with Lambda</li>
+      <li>005 - Kinesis - Realtime Data Processing</li>
+      </ol>
+      <h3 id="login">Login</h3>
+      <p><strong>AWS Console:</strong> <a href="https://devopsplayground.signin.aws.amazon.com/console">https://devopsplayground.signin.aws.amazon.com/console</a>
+      <strong>Username:</strong> <code>&lt;TBA&gt;</code>
+      <strong>Password:</strong> <code>&lt;TBA&gt;</code></p>
+      <h3 id="prerequisites">Prerequisites</h3>
+      <ul>
+      <li>Login to AWS account</li>
+      <li>Permissions to create S3 Buckets</li>
+      <li>Permissions to write and execute lambda functions</li>
+      </ul>
+      <h3 id="checkout-code-from-github">Checkout code from GitHub</h3>
+      <pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>git&nbsp;clone&nbsp;https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;devopsplayground11-lambda</span></span></div></pre>
+      <h3 id="lab-001-build-static-website-with-s3-bucket">Lab-001 - Build Static Website with s3 Bucket</h3>
+      <p><strong>Goal:</strong> Create a static website using s3 bucket</p>
+      <p><strong>AWS Services:</strong> S3 (Static Web hosting)</p>
+      <pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;lab-001_website</span></span></div></pre>
+      <ol>
+      <li>Create a new s3 Bucket<ol>
+      <li><strong>Name and region</strong><ul>
+      <li><strong>Name:</strong> <code>&lt;your name&gt;.playground11</code></li>
+      <li><strong>Region:</strong> <code>US West (Oregon)</code></li>
+      <li><strong>Copy settings from an existing bucket:</strong> Leave blank  </li>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Properties:</strong><ul>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Permissions:</strong><ul>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Review:</strong><ul>
+      <li>Click &#39;Create Bucket&#39;</li>
+      </ul>
+      </li>
+      </ol>
+      </li>
+      <li>Upload files from folder <code>lab-001_website</code><ol>
+      <li><strong>Select files</strong><ul>
+      <li>(all files minus <code>css</code> folder)</li>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Permissions</strong><ul>
+      <li>Manage Group Permissions &gt; Everyone (Read)/Make public</li>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Properties</strong><ul>
+      <li>Click &#39;Upload&#39;</li>
+      </ul>
+      </li>
+      </ol>
+      </li>
+      <li>Create subfolder <code>css</code> using S3 web console<ol>
+      <li>Goto bucket <code>&lt;your name&gt;.playground11</code><ul>
+      <li>Click Create folder</li>
+      <li><strong>Name:</strong> <code>css</code></li>
+      <li>Click &#39;Save&#39;</li>
+      </ul>
+      </li>
+      <li>Upload remaining files from <code>css</code> folder same steps as 2.</li>
+      </ol>
+      </li>
+      <li>Enable <strong>Staitic website hosting</strong><ul>
+      <li>Properties &gt; Static website hosting</li>
+      </ul>
+      </li>
+      <li>Select &#39;Use this bucket to host a Website&#39;<ul>
+      <li><strong>Index document:</strong> index.html</li>
+      <li><strong>Error document:</strong> error.html</li>
+      <li>Click &#39;Save&#39;</li>
+      </ul>
+      </li>
+      <li>Open the <strong>Endpoint</strong> in a web browser.<ul>
+      <li><code>http://&lt;your name&gt;.playground11.s3-website-us-west-2.amazonaws.com</code></li>
+      </ul>
+      </li>
+      <li>Lab End.</li>
+      </ol>
+      <h3 id="lab-002-cors-sharing-resources-between-s3-buckets">Lab-002 - CORS - Sharing resources between s3 Buckets</h3>
+      <p><strong>Goal:</strong> Share resources from another s3 bucket with website from <strong>lab-001_website</strong>.</p>
+      <p><strong>AWS Services:</strong> S3 (Static Web hosting, CORS)</p>
+      <pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;lab-002_cors</span></span></div></pre>
+      <ol>
+      <li>Edit the file <code>cors.html</code> change the link and replace it with the text <strong>YOUR_NAME</strong> with your bucket name.<ul>
+      <li><strong>REPLACE:</strong> YOUR_NAME.playground11</li>
+      <li><strong>WITH:</strong> <your name="">.playground11<pre class="editor-colors lang-html"><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&lt;</span></span><span class="syntax--entity syntax--name syntax--tag syntax--script syntax--html"><span>script</span></span><span class="syntax--source syntax--js syntax--embedded syntax--html"><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>type</span></span><span>=</span><span class="syntax--string syntax--quoted syntax--double syntax--html"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--html"><span>&quot;</span></span><span>text/javascript</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--html"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&gt;</span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--function-call syntax--js"><span class="syntax--entity syntax--name syntax--function syntax--js"><span>$</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--support syntax--variable syntax--dom syntax--js"><span>document</span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--delimiter syntax--method syntax--period syntax--js"><span>.</span></span><span class="syntax--entity syntax--name syntax--function syntax--js"><span>ready</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--meta syntax--function syntax--js"><span class="syntax--storage syntax--type syntax--function syntax--js"><span>function</span></span><span class="syntax--meta syntax--parameters syntax--js"><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly syntax--js"><span>{</span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span>&nbsp;</span><span class="syntax--meta syntax--function-call syntax--js"><span class="syntax--entity syntax--name syntax--function syntax--js"><span>$</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--string syntax--quoted syntax--double syntax--js"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--js"><span>&quot;</span></span><span>button</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--js"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--delimiter syntax--method syntax--period syntax--js"><span>.</span></span><span class="syntax--support syntax--function syntax--dom syntax--js"><span>click</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--meta syntax--function syntax--js"><span class="syntax--storage syntax--type syntax--function syntax--js"><span>function</span></span><span class="syntax--meta syntax--parameters syntax--js"><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly syntax--js"><span>{</span></span></span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--function-call syntax--js"><span class="syntax--entity syntax--name syntax--function syntax--js"><span>$</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--string syntax--quoted syntax--double syntax--js"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--js"><span>&quot;</span></span><span>#s3_cors</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--js"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--delimiter syntax--method syntax--period syntax--js"><span>.</span></span><span class="syntax--support syntax--function syntax--js"><span>load</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--string syntax--quoted syntax--double syntax--js"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--js"><span>&quot;</span></span><span class="syntax--markup syntax--underline syntax--link syntax--http syntax--hyperlink"><span>http://YOUR_NAME.playground11.s3-website-us-west-2.amazonaws.com/demo_text.txt</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--js"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--js"><span>;</span></span></span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span>&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly syntax--js"><span>}</span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--js"><span>;</span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly syntax--js"><span>}</span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--js"><span>;</span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&lt;/</span></span><span class="syntax--entity syntax--name syntax--tag syntax--script syntax--html"><span>script</span></span></span><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&gt;</span></span><span>&nbsp;</span></span></div></pre>
+      </your></li>
+      </ul>
+      </li>
+      <li>Upload files from <code>cors.html, demo_text.html</code> folder <code>lab-002_website</code> to bucket <code>&lt;your name&gt;.playground11</code> your static website from <strong>Lab-001</strong>.<ol>
+      <li><strong>Select files</strong><ul>
+      <li>(<code>cors.html, demo_text.txt</code>)</li>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Permissions</strong><ul>
+      <li>Manage Group Permissions &gt; Everyone (Read)/Make public</li>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Properties</strong><ul>
+      <li>Accept defaults, click &#39;Upload&#39;</li>
+      </ul>
+      </li>
+      </ol>
+      </li>
+      <li>Enable <strong>Staitic website hosting</strong><ul>
+      <li>Properties &gt; Static website hosting<ol>
+      <li>Select &#39;Use this bucket to host a Website&#39;</li>
+      </ol>
+      </li>
+      <li><strong>Index document:</strong> index.html</li>
+      <li><strong>Error document:</strong> error.html</li>
+      <li>Click &#39;Save&#39;</li>
+      </ul>
+      </li>
+      <li>Open the <strong>Endpoint</strong> in a web browser.<ul>
+      <li><code>http://&lt;your name&gt;.playground11.s3-website-us-west-2.amazonaws.com</code></li>
+      </ul>
+      </li>
+      <li>With a web browser visit the static website from <strong>Lab-001</strong> and click on the menu item &#39;CORS&#39; the <strong>RED</strong> text <strong>&quot;LAB NOT STARTED&quot;</strong> should disappeared if not refresh the web page.</li>
+      <li>Click on the button <strong>Get External Content</strong>. Javascript code you edited at the start of this lab has now pull text from the file <code>demo_text</code>.</li>
+      </ol>
+      <p>In order to understand CORS (Cross Origin Resource Sharing) you need to create another bucket, which this lab will pull resources from.</p>
+      <ol>
+      <li>Create a new s3 Bucket<ol>
+      <li><strong>Name and region</strong><ul>
+      <li><strong>Name:</strong> <code>&lt;your name&gt;.cors.playground11</code></li>
+      <li><strong>Region:</strong> <code>US West (Oregon)</code></li>
+      <li><strong>Copy settings from an existing bucket:</strong> Leave blank  </li>
+      </ul>
+      </li>
+      <li><strong>Set Properties:</strong><ul>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Permissions:</strong><ul>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Review:</strong><ul>
+      <li>Click &#39;Create Bucket&#39;</li>
+      </ul>
+      </li>
+      </ol>
+      </li>
+      <li>Upload files from the folder <code>lab-002_cors\cors_bucket</code> to your new bucket <code>&lt;your name&gt;.cors.playground11</code><ol>
+      <li><strong>Select files</strong><ul>
+      <li>(<code>cors_demo_text.txt, index.html, error.html</code>)</li>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Permissions</strong><ul>
+      <li>Manage Group Permissions &gt; Everyone (Read)/Make public</li>
+      <li>Click &#39;Next&#39;</li>
+      </ul>
+      </li>
+      <li><strong>Set Properties</strong><ul>
+      <li>Accept defaults, click &#39;Upload&#39;</li>
+      </ul>
+      </li>
+      </ol>
+      </li>
+      <li>Enable <strong>Staitic website hosting</strong><ul>
+      <li>Properties &gt; Static website hosting<ol>
+      <li>Select &#39;Use this bucket to host a Website&#39;</li>
+      </ol>
+      </li>
+      <li><strong>Index document:</strong> index.html</li>
+      <li><strong>Error document:</strong> error.html</li>
+      <li>Click &#39;Save&#39;</li>
+      </ul>
+      </li>
+      <li>Open the <strong>Endpoint</strong> in a web browser.<ul>
+      <li><code>http://&lt;your name&gt;.cors.playground11.s3-website-us-west-2.amazonaws.com</code></li>
+      </ul>
+      </li>
+      <li>Edit the file <code>lab-002_cors\cors.html</code> change the Javascript link again to the new link from the new S3 bucket website.<ul>
+      <li><strong>REPLACE:</strong> YOUR_NAME.playground11</li>
+      <li><strong>WITH:</strong> <your name="">.cors.playground11</your></li>
+      <li><strong>NOTE:</strong> The filename change at end of url: <code>cors_demo_text.txt</code><pre class="editor-colors lang-html"><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&lt;</span></span><span class="syntax--entity syntax--name syntax--tag syntax--script syntax--html"><span>script</span></span><span class="syntax--source syntax--js syntax--embedded syntax--html"><span>&nbsp;</span><span class="syntax--entity syntax--other syntax--attribute-name syntax--html"><span>type</span></span><span>=</span><span class="syntax--string syntax--quoted syntax--double syntax--html"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--html"><span>&quot;</span></span><span>text/javascript</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--html"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&gt;</span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--function-call syntax--js"><span class="syntax--entity syntax--name syntax--function syntax--js"><span>$</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--support syntax--variable syntax--dom syntax--js"><span>document</span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--delimiter syntax--method syntax--period syntax--js"><span>.</span></span><span class="syntax--entity syntax--name syntax--function syntax--js"><span>ready</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--meta syntax--function syntax--js"><span class="syntax--storage syntax--type syntax--function syntax--js"><span>function</span></span><span class="syntax--meta syntax--parameters syntax--js"><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly syntax--js"><span>{</span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--meta syntax--function-call syntax--js"><span class="syntax--entity syntax--name syntax--function syntax--js"><span>$</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--string syntax--quoted syntax--double syntax--js"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--js"><span>&quot;</span></span><span>button</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--js"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--delimiter syntax--method syntax--period syntax--js"><span>.</span></span><span class="syntax--support syntax--function syntax--dom syntax--js"><span>click</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--meta syntax--function syntax--js"><span class="syntax--storage syntax--type syntax--function syntax--js"><span>function</span></span><span class="syntax--meta syntax--parameters syntax--js"><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly syntax--js"><span>{</span></span></span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span>&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--function-call syntax--js"><span class="syntax--entity syntax--name syntax--function syntax--js"><span>$</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--string syntax--quoted syntax--double syntax--js"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--js"><span>&quot;</span></span><span>#s3_cors</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--js"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--delimiter syntax--method syntax--period syntax--js"><span>.</span></span><span class="syntax--support syntax--function syntax--js"><span>load</span></span><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--bracket syntax--round syntax--js"><span>(</span></span><span class="syntax--string syntax--quoted syntax--double syntax--js"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--js"><span>&quot;</span></span><span class="syntax--markup syntax--underline syntax--link syntax--http syntax--hyperlink"><span>http://YOUR_NAME.cors.playground11.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--js"><span>&quot;</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--js"><span>;</span></span></span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly syntax--js"><span>}</span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--js"><span>;</span></span></span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--meta syntax--method-call syntax--js"><span class="syntax--meta syntax--arguments syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly syntax--js"><span>}</span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--bracket syntax--round syntax--js"><span>)</span></span></span></span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--js"><span>;</span></span></span></span></div><div class="line"><span class="syntax--text syntax--html syntax--basic"><span class="syntax--source syntax--js syntax--embedded syntax--html"><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&lt;/</span></span><span class="syntax--entity syntax--name syntax--tag syntax--script syntax--html"><span>script</span></span></span><span class="syntax--punctuation syntax--definition syntax--tag syntax--html"><span>&gt;</span></span><span>&nbsp;</span></span></div></pre>
+      </li>
+      </ul>
+      </li>
+      <li>Click on the button <strong>Get External Content</strong>. You will notice that nothing happens. If you Enable the Javascript console you notice in Safari the error:<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Error]&nbsp;Origin&nbsp;</span><span class="syntax--markup syntax--underline syntax--link syntax--http syntax--hyperlink"><span>http://meetup.playground11.s3-website-us-west-2.amazonaws.com</span></span><span>&nbsp;is&nbsp;not&nbsp;allowed&nbsp;by&nbsp;Access-Control-Allow-Origin.</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Error]&nbsp;Failed&nbsp;to&nbsp;load&nbsp;resource:&nbsp;Origin&nbsp;</span><span class="syntax--markup syntax--underline syntax--link syntax--http syntax--hyperlink"><span>http://meetup.playground11.s3-website-us-west-2.amazonaws.com</span></span><span>&nbsp;is&nbsp;not&nbsp;allowed&nbsp;by&nbsp;Access-Control-Allow-Origin.&nbsp;(cors_demo_text.txt,&nbsp;line&nbsp;0)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Error]&nbsp;XMLHttpRequest&nbsp;cannot&nbsp;load&nbsp;</span><span class="syntax--markup syntax--underline syntax--link syntax--http syntax--hyperlink"><span>http://meetup.cors.playground11.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt</span></span><span>&nbsp;due&nbsp;to&nbsp;access&nbsp;control&nbsp;checks.</span></span></span></div></pre>This occurs because web browsers expect resources to be requested from the same domain. To resolve this issue AWS S3 has a feature called CORS (Cross Origin Resource Sharing) if you enable this feature this will allow the webpage to request the content from another bucket.</li>
+      <li>With bucket <code>&lt;your name&gt;.cors.playground11</code> enable CORS configuration, add a new policy.<ul>
+      <li>Permissions &gt; CORS configuration</li>
+      <li><strong>NOTE:</strong> Replace url in <code>&lt;AllowedOrigin&gt;</code> tag with your static website link from lab-001.<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;CORSConfiguration&nbsp;xmlns=&quot;</span><span class="syntax--markup syntax--underline syntax--link syntax--http syntax--hyperlink"><span>http://s3.amazonaws.com/doc/2006-03-01/</span></span><span>&quot;&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;CORSRule&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;AllowedOrigin&gt;http://&lt;your&nbsp;name&gt;.playground11.s3-website-us-west-2.amazonaws.com&lt;/AllowedOrigin&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;AllowedMethod&gt;GET&lt;/AllowedMethod&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;MaxAgeSeconds&gt;3000&lt;/MaxAgeSeconds&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;AllowedHeader&gt;Authorization&lt;/AllowedHeader&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;/CORSRule&gt;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&lt;/CORSConfiguration&gt;</span></span></span></div></pre></li>
+      <li>Click &quot;Save&quot;</li>
+      </ul>
+      </li>
+      <li>Click on the button Get External Content. You will see <strong>CORS Working....!</strong> now.</li>
+      <li>Lab End.</li>
+      </ol>
+      <h3 id="lab-003-web-services-with-lambda-python-">Lab-003 - Web Services with Lambda (Python)</h3>
+      <p><strong>Goal:</strong> Create a lambda function that generates a random number and expose the function as a web service via API Gateway.</p>
+      <p><strong>AWS Services:</strong> S3, Lambda, API Gateway,</p>
+      <pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;lab-002_lambda</span></span></div></pre>
+      <ol>
+      <li>Using </li>
+      </ol>
+      <pre class="editor-colors lang-python"><div class="line"><span class="syntax--source syntax--python"><span class="syntax--keyword syntax--control syntax--import syntax--from syntax--python"><span>from</span></span><span>&nbsp;</span><span>random</span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--import syntax--python"><span>import</span></span><span>&nbsp;</span><span>randint</span></span></div><div class="line"><span class="syntax--source syntax--python"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--python"><span class="syntax--meta syntax--function syntax--python"><span class="syntax--storage syntax--type syntax--function syntax--python"><span>def</span></span><span>&nbsp;</span><span class="syntax--entity syntax--name syntax--function syntax--python"><span>lambda_handler</span></span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--python"><span>(</span></span><span class="syntax--meta syntax--function syntax--parameters syntax--python"><span class="syntax--variable syntax--parameter syntax--function syntax--python"><span>event</span></span><span class="syntax--punctuation syntax--separator syntax--parameters syntax--python"><span>,</span></span><span>&nbsp;</span><span class="syntax--variable syntax--parameter syntax--function syntax--python"><span>context</span></span></span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--python"><span>)</span></span><span class="syntax--punctuation syntax--section syntax--function syntax--begin syntax--python"><span>:</span></span></span></span></div><div class="line"><span class="syntax--source syntax--python"><span class="syntax--punctuation syntax--whitespace syntax--comment syntax--leading syntax--python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span class="syntax--comment syntax--line syntax--number-sign syntax--python"><span class="syntax--punctuation syntax--definition syntax--comment syntax--python"><span>#</span></span><span>&nbsp;</span><span class="syntax--storage syntax--type syntax--class syntax--todo"><span>TODO</span></span><span>&nbsp;implement</span><span>&nbsp;</span></span></span></div><div class="line"><span class="syntax--source syntax--python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>myNumber</span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--assignment syntax--python"><span>=</span></span><span>&nbsp;</span><span class="syntax--meta syntax--function-call syntax--python"><span>randint</span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--begin syntax--python"><span>(</span></span><span class="syntax--meta syntax--function-call syntax--arguments syntax--python"><span class="syntax--constant syntax--numeric syntax--integer syntax--decimal syntax--python"><span>0</span></span><span>,</span><span class="syntax--constant syntax--numeric syntax--integer syntax--decimal syntax--python"><span>100</span></span></span><span class="syntax--punctuation syntax--definition syntax--arguments syntax--end syntax--python"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--keyword syntax--other syntax--python"><span>print</span></span><span>&nbsp;</span><span>myNumber</span></span></div><div class="line"><span class="syntax--source syntax--python"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--keyword syntax--control syntax--statement syntax--python"><span>return</span></span><span>&nbsp;</span><span>myNumber</span></span></div></pre>
+      <h3 id="lab-004-posting-data-with-lambda">Lab-004 - Posting Data with Lambda</h3>
+      <p><strong>Goal:</strong> Using a form a the s3 Bucket website that is processed using Lambda. You will upload a form to the website and write a lambda function and expose that function using API Gateway using mapping tempaltes to process the POST from the form.</p>
+      <p><strong>AWS Services:</strong> S3, Lambda, API Gateway,</p>
+      <pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;lab-004_mapping_templates</span></span></div></pre>
+      <ol>
+      <li>Upload the lab-004_mapping_templates to s3 website.</li>
+      </ol>
+      <h3 id="lab-005-kinesis-realtime-data-processing-wth-lambda-dynamodb-and-api-gateway">Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway</h3>
+      <p><strong>Goal:</strong> Using AWS Kinesis Streams to create a real-time data reporting using Lambda function to</p>
+      <p><strong>AWS Services:</strong> S3, Lambda, API Gateway, Kinesis Streams, DynamoDB</p>
+      <pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;lab-005_kinesis</span></span></div></pre></body>
+
+
+
+
+
+    </div>
+
+
+    <!-- end .grid_24 -->
+    <div class="grid_24">
+      <hr/>
+      <p>
+        s3 Sample Static website
+      </p>
+    </div>
+  </div>
+</body>
+</html>
