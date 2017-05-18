@@ -12,18 +12,21 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 1. 004 - Posting Data with Lambda
 1. 005 - Kinesis - Realtime Data Processing
 
-### Login
+#### Login
 
-__AWS Console:__ https://devopsplayground.signin.aws.amazon.com/console
-__Username:__ `<TBA>`
-__Password:__ `<TBA>`
+- __AWS Console:__ `https://devopsplayground.signin.aws.amazon.com/console`
+- __Username:__ `<TBA>`
+- __Password:__ `<TBA>`
 
-### Prerequisites
+
+- __Region:__ Oregon
+
+#### Prerequisites
 - Login to AWS account
 - Permissions to create S3 Buckets
 - Permissions to write and execute lambda functions
 
-### Checkout code from GitHub
+#### Checkout code from GitHub
 
 ```bash
 git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
@@ -112,7 +115,7 @@ cd lab-002_cors
     - Accept defaults, click 'Upload'
 1. Enable __Staitic website hosting__
      - Properties > Static website hosting
-  1. Select 'Use this bucket to host a Website'
+1. Select 'Use this bucket to host a Website'
      - __Index document:__ index.html
      - __Error document:__ error.html
      - Click 'Save'
@@ -145,15 +148,15 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
     - Accept defaults, click 'Upload'
 1. Enable __Staitic website hosting__
      - Properties > Static website hosting
-  1. Select 'Use this bucket to host a Website'
+1. Select 'Use this bucket to host a Website'
      - __Index document:__ index.html
      - __Error document:__ error.html
      - Click 'Save'
 1. Open the __Endpoint__ in a web browser.
   - `http://<your name>.cors.playground11.s3-website-us-west-2.amazonaws.com`
 1. Edit the file `lab-002_cors\cors.html` change the Javascript link again to the new link from the new S3 bucket website.
-  - __REPLACE:__ YOUR_NAME.playground11
-  - __WITH:__ <YOUR NAME>.cors.playground11
+  - __REPLACE:__ `YOUR_NAME.playground11`
+  - __WITH:__ `<YOUR NAME>.cors.playground11`
   - __NOTE:__ The filename change at end of url: `cors_demo_text.txt`
 ```html
 <script type="text/javascript">
@@ -199,19 +202,58 @@ __AWS Services:__ S3, Lambda, API Gateway,
 ```bash
 cd lab-002_lambda
 ```
+##### Create Lambda function
 
-1. Using 
-
+1. Services > Compute > Lambda
+1. Create New function
+  1. __Select blueprint__
+    - Select runtime: python 2.7
+    - Filter: hello-world-python
+  1. __Configure triggers__
+    - Click 'Next'
+  1. __Configure function__
+    - Name: `<your name>_generateRandomNumber`
+    - Description: Function that generates a random number between 0 and 100
+    - Runtime: Python 2.7
+    - Lambda function code: Copy and Paste the code from file `lab-003_lambda\getSimpleRandomNumber.py` into the window. Leave the __Code entry type: Edit code inline__.
+    - __Lambda function handler and role__
+        - Handler: `lambda_function.lambda_handler`
+        - Role*: Choose an existing role
+        - Existing role*: `lambdaExecutionRole`
+    - Accept Defaults for other settings
+    - Click 'Next'
+  1. __Review__
+    - Click 'Create function'
+    - __NOTE:__ Congratulations! Your Lambda function "meetup_generateRandomNumber" has been successfully created. You can now click on the "Test" button to input a test event and test your function.
+1. Testing your function
+  - Click 'Test'
+  - Input test event
+    - Sample event template : Hello World
+    ```json
+{}
+    ```
+    - Click 'Save and test'
+    - You will see the message __Execution result: succeeded(logs)__ and a random number in a box with a dotted line.
+1. View Lambda logs
+  - Click the link 'logs' in the title labeled __Execution result: succeeded(logs)__
+  - Click the log Group and look for the line: `Random No. [ 21 ]`. As the number is random it should look similar.
 
 ```python
+from __future__ import print_function
 from random import randint
 
+print('Loading function')
+
 def lambda_handler(event, context):
-    # TODO implement
     myNumber = randint(0,100)
-    print myNumber
+    print("Random No. [ %s ]" % myNumber)
     return myNumber
+
 ```
+
+##### Create API Gateway
+
+
 
 
 ### Lab-004 - Posting Data with Lambda
