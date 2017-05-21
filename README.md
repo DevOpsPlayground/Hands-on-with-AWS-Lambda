@@ -64,7 +64,7 @@ cd lab-001_website
   1. __Set Permissions__
       - Manage Group Permissions > Everyone (Read)/Make public
       - Click 'Next'
-  - __Set Properties__
+  1. __Set Properties__
       - Click 'Upload'
 1. Create subfolder `css` using S3 web console
   1. Goto bucket `<your name>.playground11`
