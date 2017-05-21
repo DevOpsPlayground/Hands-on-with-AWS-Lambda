@@ -1,8 +1,10 @@
-https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda
-
 # Hands On Serverless Computing with Lambda
 
 The topics for this hands-on session will be AWS Lambda, function as a service (FaaS). During this Playground you will create a website hosted on AWS S3 using AWS Lambda and Amazon API Gateway to add dynamic functionality to the site.
+
+1. [GitHub - README.md](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda)
+1. [Labs Static Website sample](http://meetup.playground11.s3-website-us-west-2.amazonaws.com/index.html)
+1. All labs were done in US Oregon Region
 
 ## Labs
 
@@ -199,9 +201,6 @@ __Goal:__ Create a lambda function that generates a random number and expose the
 
 __AWS Services:__ S3, Lambda, API Gateway,
 
-```bash
-cd lab-002_lambda
-```
 ##### Create Lambda function
 
 1. Services > Compute > Lambda
@@ -217,9 +216,9 @@ cd lab-002_lambda
     - Runtime: Python 2.7
     - Lambda function code: Copy and Paste the code from file `lab-003_lambda\getSimpleRandomNumber.py` into the window. Leave the __Code entry type: Edit code inline__.
     - __Lambda function handler and role__
-        - Handler: `lambda_function.lambda_handler`
-        - Role*: Choose an existing role
-        - Existing role*: `lambdaExecutionRole`
+        - __Handler:__ `lambda_function.lambda_handler`
+        - __Role*:__ Choose an existing role
+        - __Existing role*:__ `lambdaExecutionRole`
     - Accept Defaults for other settings
     - Click 'Next'
   1. __Review__
@@ -238,6 +237,8 @@ cd lab-002_lambda
   - Click the link 'logs' in the title labeled __Execution result: succeeded(logs)__
   - Click the log Group and look for the line: `Random No. [ 21 ]`. As the number is random it should look similar.
 
+
+__lambda_function.lambda_handler__
 ```python
 from __future__ import print_function
 from random import randint
@@ -251,10 +252,77 @@ def lambda_handler(event, context):
 
 ```
 
-##### Create API Gateway
+##### Exposing Lambda via API Gateway
+
+1. Create new API
+  - Check 'New API'
+  - __Name:__ `<your name>pg11`
+  - __Description:__ test lab api
+  - Click 'Create API'
+1. Add a New Child Resource
+  3- APIs > `<your name>pg11` > Resources
+  - __Configure as proxy resource:__ Leave blank
+  - __Resource Name:__ Random Number
+  - __Resource Path:__ `/random-number`
+  - __Enable API Gateway CORS:__ Yes
+1. Add a GET method to resource __/random-number__
+  - Actions > Create Method
+  - Under the resource a drop down will appear select __GET__ method and click the 'tick'.
+1. /random-number __GET__ - Setup
+  - __Integration type:__ Lambda Function
+  - __Use Lambda Proxy integration:__ Leave blank
+  - __Lambda Region:__ `us-west-2`
+  - __Lambda Function:__ `<your name>_generateRandomNumber`
+  - Click 'Save'
+    - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
+
+##### Testing Lambda via API Gateway
+
+1. Click __GET__ method under __/random-number__
+1. Click __TEST__ link in the box labeled 'Client
+1. At the bottom of the new view Click 'Test' button
+1. Under __Response Body__ you should see a random number. Click the blue button labelled 'Test' again at the bottom of the screen and you will see a new number appear.
+1. Test completed successfully
+
+##### Deploy API
+
+1. Click Resources select __/__
+1. Select __Actions__ and select __Deploy API__
+  - Deploy API
+  - __Deployment stage:__ [New Stage]
+    - __Stage Name:__ dev
+    - __Stage description:__ Pre-production development stage
+  - __Deployment description:__
+1. __Remember Invoke URL:__ `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev`
 
 
+##### Test API Deployment
 
+1. Entering the Invoke URL into the web browser.
+  - __NOTE:__ You will have to enter the method name e.g. `/random-number` to the end of the ___Invoke URL___
+  - `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev/random-number`
+1. You should see a random number appear in the web browser.
+
+##### Integrate API into static website
+
+```bash
+cd lab-003_lambda
+```
+
+1.  Edit the file `apigw.html` change the link and replace replace the string 'MY_API_GW_REQUEST' with the API Gateway Invoke URL with method name `/random-number` in it. e.g. `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev/random-number`
+1. Update the file to S3 bucket `<Your name>.playground11` remember to set read permission for everyone.
+1. load the website in a web browser
+1. Click the button labelled 'Get External Content'
+  - __IT WILL FAIL...!__
+  - View Javascript in your website and you'll see message like `CORS header 'Access-Control-Allow-Origin' missing`.
+    - Previous lab we did a example of CORS we need to enable the API here to all the website to access the link from a diffent site.
+1. `/random-number`, __GET__ method then Actions > __Enable CORS__
+1. You need to redeploy the API, __Deploy API__
+  - __Development stage:__ dev
+  - __Development description:__ lab-003
+1. Refesh the web page, __API Gateway__
+  - press button __Get External Content__
+1. Lab End.
 
 ### Lab-004 - Posting Data with Lambda
 
@@ -267,6 +335,99 @@ cd lab-004_mapping_templates
 ```
 
 1. Upload the lab-004_mapping_templates to s3 website.
+
+##### /hello - GET - Integration Request
+
+1. Method Execution - GET
+  - __Integation type:__ Lambda Function
+  - __Use Lambda Proxy integration:__ Leave Blank
+  - __Lambda Region:__ us-west-2
+  - __Lambda Function:__ myHelloMsg
+  - __Invoke with caller credentials:__ Leave Blank
+  - __Credentials cache:__
+Do not add caller credentials to cache key
+1. Body Mapping Templates - GET
+  - Request body passthrough: When there are no templates defined (recommended)
+  - Content-Type: `application/json`
+
+
+__Body Mapping Template__
+```json
+{
+    "name":"$input.params('name')"
+}
+```
+
+##### /hello - POST - Integration Request
+
+1. Method Execution - POST
+  - __Integation type:__ Lambda Function
+  - __Use Lambda Proxy integration:__ Leave Blank
+  - __Lambda Region:__ us-west-2
+  - __Lambda Function:__ myHelloMsg
+  - __Invoke with caller credentials:__ Leave Blank
+  - __Credentials cache:__
+  Do not add caller credentials to cache key
+
+1. Body Mapping Templates - POST
+  - Request body passthrough: When there are no templates defined (recommended)
+  - Content-Type: `application/x-www-form-urlencoded`
+
+__Body Mapping Template__
+```velocity
+## convert HTML POST data or HTTP GET query string to JSON
+
+## get the raw post data from the AWS built-in variable and give it a nicer name
+#if ($context.httpMethod == "POST")
+ #set($rawAPIData = $input.path('$'))
+#elseif ($context.httpMethod == "GET")
+ #set($rawAPIData = $input.params().querystring)
+ #set($rawAPIData = $rawAPIData.toString())
+ #set($rawAPIDataLength = $rawAPIData.length() - 1)
+ #set($rawAPIData = $rawAPIData.substring(1, $rawAPIDataLength))
+ #set($rawAPIData = $rawAPIData.replace(", ", "&"))
+#else
+ #set($rawAPIData = "")
+#end
+
+## first we get the number of "&" in the string, this tells us if there is more than one key value pair
+#set($countAmpersands = $rawAPIData.length() - $rawAPIData.replace("&", "").length())
+
+## if there are no "&" at all then we have only one key value pair.
+## we append an ampersand to the string so that we can tokenise it the same way as multiple kv pairs.
+## the "empty" kv pair to the right of the ampersand will be ignored anyway.
+#if ($countAmpersands == 0)
+ #set($rawPostData = $rawAPIData + "&")
+#end
+
+## now we tokenise using the ampersand(s)
+#set($tokenisedAmpersand = $rawAPIData.split("&"))
+
+## we set up a variable to hold the valid key value pairs
+#set($tokenisedEquals = [])
+
+## now we set up a loop to find the valid key value pairs, which must contain only one "="
+#foreach( $kvPair in $tokenisedAmpersand )
+ #set($countEquals = $kvPair.length() - $kvPair.replace("=", "").length())
+ #if ($countEquals == 1)
+  #set($kvTokenised = $kvPair.split("="))
+  #if ($kvTokenised[0].length() > 0)
+   ## we found a valid key value pair. add it to the list.
+   #set($devNull = $tokenisedEquals.add($kvPair))
+  #end
+ #end
+#end
+
+## next we set up our loop inside the output structure "{" and "}"
+{
+#foreach( $kvPair in $tokenisedEquals )
+  ## finally we output the JSON for this pair and append a comma if this isn't the last pair
+  #set($kvTokenised = $kvPair.split("="))
+ "$util.urlDecode($kvTokenised[0])" : #if($kvTokenised[1].length() > 0)"$util.urlDecode($kvTokenised[1])"#{else}""#end#if( $foreach.hasNext ),#end
+#end
+}
+```
+
 
 ### Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
 
