@@ -21,12 +21,11 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 - __Password:__ `<TBA>`
 
 
-- __Region:__ Oregon
-
 #### Prerequisites
 - Login to AWS account
 - Permissions to create S3 Buckets
 - Permissions to write and execute lambda functions
+- __Region:__ Oregon
 
 #### Checkout code from GitHub
 
