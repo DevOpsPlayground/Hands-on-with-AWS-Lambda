@@ -405,13 +405,23 @@ cd lab-004_mapping_templates
 1. Method Execution - GET
     - __Integation type:__ Lambda Function
     - __Use Lambda Proxy integration:__ Leave Blank
-    - __Lambda Region:__ us-west-2
-    - __Lambda Function:__ myHelloMsg
+    - __Lambda Region:__ `us-west-2`
+    - __Lambda Function:__ `<your name>_myHelloMsg`
     - __Invoke with caller credentials:__ Leave Blank
     - __Credentials cache:__ Do not add caller credentials to cache key
-1. Body Mapping Templates - GET
-    - Request body passthrough: When there are no templates defined (recommended)
-    - Content-Type: `application/json`
+    __Body Mapping Templates - GET__
+    - __Request body passthrough:__ When there are no templates defined (recommended)
+    - __Add Mapping Template___
+        - __Content-Type:__ `application/json`  
+        - __Body Mapping Template__
+        ```json
+        {
+            "name":"$input.params('name')"
+        }
+        ```
+
+
+
 
 ##### Upload new lab page for website.
 
@@ -434,12 +444,7 @@ cd lab-004_mapping_templates
 
 
 
-__Body Mapping Template__
-```json
-{
-    "name":"$input.params('name')"
-}
-```
+
 
 ##### /hello - POST - Integration Request
 
