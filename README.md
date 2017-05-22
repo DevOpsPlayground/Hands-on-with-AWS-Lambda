@@ -204,37 +204,37 @@ __AWS Services:__ S3, Lambda, API Gateway,
 
 1. Services > Compute > Lambda
 1. Create New function
-  1. __Select blueprint__
-    - Select runtime: python 2.7
-    - Filter: hello-world-python
-  1. __Configure triggers__
-    - Click 'Next'
-  1. __Configure function__
-    - Name: `<your name>_generateRandomNumber`
-    - Description: Function that generates a random number between 0 and 100
-    - Runtime: Python 2.7
-    - Lambda function code: Copy and Paste the code from file `lab-003_lambda\getSimpleRandomNumber.py` into the window. Leave the __Code entry type: Edit code inline__.
-    - __Lambda function handler and role__
-        - __Handler:__ `lambda_function.lambda_handler`
-        - __Role*:__ Choose an existing role
-        - __Existing role*:__ `lambdaExecutionRole`
-    - Accept Defaults for other settings
-    - Click 'Next'
-  1. __Review__
-    - Click 'Create function'
-    - __NOTE:__ Congratulations! Your Lambda function "meetup_generateRandomNumber" has been successfully created. You can now click on the "Test" button to input a test event and test your function.
+    1. __Select blueprint__
+        - Select runtime: python 2.7
+        - Filter: hello-world-python
+    1. __Configure triggers__
+        - Click 'Next'
+    1. __Configure function__
+        - Name: `<your name>_generateRandomNumber`
+        - Description: Function that generates a random number between 0 and 100
+        - Runtime: Python 2.7
+        - Lambda function code: Copy and Paste the code from file `lab-003_lambda\getSimpleRandomNumber.py` into the window. Leave the __Code entry type: Edit code inline__.
+        - __Lambda function handler and role__
+            - __Handler:__ `lambda_function.lambda_handler`
+            - __Role*:__ Choose an existing role
+            - __Existing role*:__ `lambdaExecutionRole`
+        - Accept Defaults for other settings
+        - Click 'Next'
+    1. __Review__
+        - Click 'Create function'
+        - __NOTE:__ Congratulations! Your Lambda function "meetup_generateRandomNumber" has been successfully created. You can now click on the "Test" button to input a test event and test your function.
 1. Testing your function
-  - Click 'Test'
-  - Input test event
-    - Sample event template : Hello World
-    ```json
-{}
-    ```
-    - Click 'Save and test'
-    - You will see the message __Execution result: succeeded(logs)__ and a random number in a box with a dotted line.
+    - Click 'Test'
+    - Input test event
+      - Sample event template : Hello World
+      ```json
+  {}
+      ```
+      - Click 'Save and test'
+      - You will see the message __Execution result: succeeded(logs)__ and a random number in a box with a dotted line.
 1. View Lambda logs
-  - Click the link 'logs' in the title labeled __Execution result: succeeded(logs)__
-  - Click the log Group and look for the line: `Random No. [ 21 ]`. As the number is random it should look similar.
+    - Click the link 'logs' in the title labeled __Execution result: succeeded(logs)__
+    - Click the log Group and look for the line: `Random No. [ 21 ]`. As the number is random it should look similar.
 
 
 __lambda_function.lambda_handler__
