@@ -381,7 +381,7 @@ cd lab-004_mapping_templates
 
 #### Configuring API Gateway
 
-##### /hello - GET - Integration Request
+#### Setup New Resource /hello  
 
 1. Create New Resource on /
     - APIs > `<your name>pg11` > Resources
@@ -390,6 +390,9 @@ cd lab-004_mapping_templates
     - __Resource Path:__ `/hello`
     - __Enable API Gateway CORS:__ Yes
     - Click 'Create Resource'
+
+#### /hello - GET - Integration Request
+
 1. Add a GET method to resource __/hello__
     - Click Resource '/hello'
     - Actions > Create Method
@@ -420,14 +423,10 @@ cd lab-004_mapping_templates
         }
         ```
     - Click 'Save'
-1. Deploy API
-    - Select __Actions__ and select __Deploy API__
-    - __Stage Name:__ dev
-    - __Stage description:__ Pre-production development stage
-1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
 
-##### /hello - POST - Integration Request
-1. Add a GET method to resource __/hello__
+#### /hello - POST - Integration Request
+
+1. Add a POST method to resource __/hello__
     - Click Resource '/hello'
     - Actions > Create Method
     - Under the resource a drop down will appear select __POST__ method and click the 'tick'.
@@ -451,12 +450,70 @@ cd lab-004_mapping_templates
     - Add Mapping Template:
         - __Content-Type:__ `application/json`  
         - __Body Mapping Template__
-        ```json
+        ```velocity
+        ## convert HTML POST data or HTTP GET query string to JSON
+
+        ## get the raw post data from the AWS built-in variable and give it a nicer name
+        #if ($context.httpMethod == "POST")
+         #set($rawAPIData = $input.path('$'))
+        #elseif ($context.httpMethod == "GET")
+         #set($rawAPIData = $input.params().querystring)
+         #set($rawAPIData = $rawAPIData.toString())
+         #set($rawAPIDataLength = $rawAPIData.length() - 1)
+         #set($rawAPIData = $rawAPIData.substring(1, $rawAPIDataLength))
+         #set($rawAPIData = $rawAPIData.replace(", ", "&"))
+        #else
+         #set($rawAPIData = "")
+        #end
+
+        ## first we get the number of "&" in the string, this tells us if there is more than one key value pair
+        #set($countAmpersands = $rawAPIData.length() - $rawAPIData.replace("&", "").length())
+
+        ## if there are no "&" at all then we have only one key value pair.
+        ## we append an ampersand to the string so that we can tokenise it the same way as multiple kv pairs.
+        ## the "empty" kv pair to the right of the ampersand will be ignored anyway.
+        #if ($countAmpersands == 0)
+         #set($rawPostData = $rawAPIData + "&")
+        #end
+
+        ## now we tokenise using the ampersand(s)
+        #set($tokenisedAmpersand = $rawAPIData.split("&"))
+
+        ## we set up a variable to hold the valid key value pairs
+        #set($tokenisedEquals = [])
+
+        ## now we set up a loop to find the valid key value pairs, which must contain only one "="
+        #foreach( $kvPair in $tokenisedAmpersand )
+         #set($countEquals = $kvPair.length() - $kvPair.replace("=", "").length())
+         #if ($countEquals == 1)
+          #set($kvTokenised = $kvPair.split("="))
+          #if ($kvTokenised[0].length() > 0)
+           ## we found a valid key value pair. add it to the list.
+           #set($devNull = $tokenisedEquals.add($kvPair))
+          #end
+         #end
+        #end
+
+        ## next we set up our loop inside the output structure "{" and "}"
         {
-            "name":"$input.params('name')"
+        #foreach( $kvPair in $tokenisedEquals )
+          ## finally we output the JSON for this pair and append a comma if this isn't the last pair
+          #set($kvTokenised = $kvPair.split("="))
+         "$util.urlDecode($kvTokenised[0])" : #if($kvTokenised[1].length() > 0)"$util.urlDecode($kvTokenised[1])"#{else}""#end#if( $foreach.hasNext ),#end
+        #end
         }
         ```
+
     - Click 'Save'
+1. Deploy API
+    - Select __Actions__ and select __Deploy API__
+    - __Stage Name:__ dev
+    - __Stage description:__ Pre-production development stage
+1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
+
+
+#### Deploy API
+
 1. Deploy API
     - Select __Actions__ and select __Deploy API__
     - __Stage Name:__ dev
@@ -502,59 +559,7 @@ cd lab-004_mapping_templates
     - Content-Type: `application/x-www-form-urlencoded`
 
 __Body Mapping Template__
-```velocity
-## convert HTML POST data or HTTP GET query string to JSON
 
-## get the raw post data from the AWS built-in variable and give it a nicer name
-#if ($context.httpMethod == "POST")
- #set($rawAPIData = $input.path('$'))
-#elseif ($context.httpMethod == "GET")
- #set($rawAPIData = $input.params().querystring)
- #set($rawAPIData = $rawAPIData.toString())
- #set($rawAPIDataLength = $rawAPIData.length() - 1)
- #set($rawAPIData = $rawAPIData.substring(1, $rawAPIDataLength))
- #set($rawAPIData = $rawAPIData.replace(", ", "&"))
-#else
- #set($rawAPIData = "")
-#end
-
-## first we get the number of "&" in the string, this tells us if there is more than one key value pair
-#set($countAmpersands = $rawAPIData.length() - $rawAPIData.replace("&", "").length())
-
-## if there are no "&" at all then we have only one key value pair.
-## we append an ampersand to the string so that we can tokenise it the same way as multiple kv pairs.
-## the "empty" kv pair to the right of the ampersand will be ignored anyway.
-#if ($countAmpersands == 0)
- #set($rawPostData = $rawAPIData + "&")
-#end
-
-## now we tokenise using the ampersand(s)
-#set($tokenisedAmpersand = $rawAPIData.split("&"))
-
-## we set up a variable to hold the valid key value pairs
-#set($tokenisedEquals = [])
-
-## now we set up a loop to find the valid key value pairs, which must contain only one "="
-#foreach( $kvPair in $tokenisedAmpersand )
- #set($countEquals = $kvPair.length() - $kvPair.replace("=", "").length())
- #if ($countEquals == 1)
-  #set($kvTokenised = $kvPair.split("="))
-  #if ($kvTokenised[0].length() > 0)
-   ## we found a valid key value pair. add it to the list.
-   #set($devNull = $tokenisedEquals.add($kvPair))
-  #end
- #end
-#end
-
-## next we set up our loop inside the output structure "{" and "}"
-{
-#foreach( $kvPair in $tokenisedEquals )
-  ## finally we output the JSON for this pair and append a comma if this isn't the last pair
-  #set($kvTokenised = $kvPair.split("="))
- "$util.urlDecode($kvTokenised[0])" : #if($kvTokenised[1].length() > 0)"$util.urlDecode($kvTokenised[1])"#{else}""#end#if( $foreach.hasNext ),#end
-#end
-}
-```
 
 
 
