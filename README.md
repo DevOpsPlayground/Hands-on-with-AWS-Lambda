@@ -92,17 +92,16 @@ __AWS Services:__ S3 (Static Web hosting)
    - `http://<your name>.playground11.s3-website-us-west-2.amazonaws.com`
 1. Lab End.
 
-
-
-
-
-
-
-
-
-
-
-
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
 
 
 # Lab-002 - CORS - Sharing resources between s3 Buckets
