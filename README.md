@@ -94,8 +94,8 @@ cd lab-002_cors
 ```
 
 1. Edit the file `cors.html` change the link and replace it with the text __YOUR_NAME__ with your bucket name.
-  - __REPLACE:__ YOUR_NAME.playground11
-  - __WITH:__ <YOUR NAME>.playground11
+    - __REPLACE:__ YOUR_NAME.playground11
+    - __WITH:__ <YOUR NAME>.playground11
 ```html
 <script type="text/javascript">
   $(document).ready(function(){
@@ -106,14 +106,14 @@ cd lab-002_cors
 </script>
 ```
 1. Upload files from `cors.html, demo_text.html` folder `lab-002_website` to bucket `<your name>.playground11` your static website from __Lab-001__.
-  1. __Select files__
-    - (`cors.html, demo_text.txt`)
-    - Click 'Next'
-  1. __Set Permissions__
-    - Manage Group Permissions > Everyone (Read)/Make public
-    - Click 'Next'
-  1. __Set Properties__
-    - Accept defaults, click 'Upload'
+    1. __Select files__
+        - (`cors.html, demo_text.txt`)
+        - Click 'Next'
+    1. __Set Permissions__
+        - Manage Group Permissions > Everyone (Read)/Make public
+        - Click 'Next'
+    1. __Set Properties__
+        - Accept defaults, click 'Upload'
 1. Enable __Staitic website hosting__
      - Properties > Static website hosting
 1. Select 'Use this bucket to host a Website'
@@ -128,25 +128,25 @@ cd lab-002_cors
 In order to understand CORS (Cross Origin Resource Sharing) you need to create another bucket, which this lab will pull resources from.
 
 1. Create a new s3 Bucket
-  1. __Name and region__
-    - __Name:__ `<your name>.cors.playground11`
-    - __Region:__ `US West (Oregon)`
-    - __Copy settings from an existing bucket:__ Leave blank  
-  1. __Set Properties:__
-    - Click 'Next'
-  1. __Set Permissions:__
-    - Click 'Next'
-  1. __Review:__
-    - Click 'Create Bucket'
+    1. __Name and region__
+        - __Name:__ `<your name>.cors.playground11`
+        - __Region:__ `US West (Oregon)`
+        - __Copy settings from an existing bucket:__ Leave blank  
+    1. __Set Properties:__
+        - Click 'Next'
+    1. __Set Permissions:__
+        - Click 'Next'
+    1. __Review:__
+        - Click 'Create Bucket'
 1. Upload files from the folder `lab-002_cors\cors_bucket` to your new bucket `<your name>.cors.playground11`
-  1. __Select files__
-    - (`cors_demo_text.txt, index.html, error.html`)
-    - Click 'Next'
-  1. __Set Permissions__
-    - Manage Group Permissions > Everyone (Read)/Make public
-    - Click 'Next'
-  1. __Set Properties__
-    - Accept defaults, click 'Upload'
+    1. __Select files__
+        - (`cors_demo_text.txt, index.html, error.html`)
+        - Click 'Next'
+    1. __Set Permissions__
+        - Manage Group Permissions > Everyone (Read)/Make public
+        - Click 'Next'
+    1. __Set Properties__
+        - Accept defaults, click 'Upload'
 1. Enable __Staitic website hosting__
      - Properties > Static website hosting
 1. Select 'Use this bucket to host a Website'
@@ -154,11 +154,11 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
      - __Error document:__ error.html
      - Click 'Save'
 1. Open the __Endpoint__ in a web browser.
-  - `http://<your name>.cors.playground11.s3-website-us-west-2.amazonaws.com`
+    - `http://<your name>.cors.playground11.s3-website-us-west-2.amazonaws.com`
 1. Edit the file `lab-002_cors\cors.html` change the Javascript link again to the new link from the new S3 bucket website.
-  - __REPLACE:__ `YOUR_NAME.playground11`
-  - __WITH:__ `<YOUR NAME>.cors.playground11`
-  - __NOTE:__ The filename change at end of url: `cors_demo_text.txt`
+    - __REPLACE:__ `YOUR_NAME.playground11`
+    - __WITH:__ `<YOUR NAME>.cors.playground11`
+    - __NOTE:__ The filename change at end of url: `cors_demo_text.txt`
 ```html
 <script type="text/javascript">
 $(document).ready(function(){
@@ -176,8 +176,8 @@ $(document).ready(function(){
 ```
 This occurs because web browsers expect resources to be requested from the same domain. To resolve this issue AWS S3 has a feature called CORS (Cross Origin Resource Sharing) if you enable this feature this will allow the webpage to request the content from another bucket.
 1. With bucket `<your name>.cors.playground11` enable CORS configuration, add a new policy.
-  - Permissions > CORS configuration
-  - __NOTE:__ Replace url in `<AllowedOrigin>` tag with your static website link from lab-001.
+    - Permissions > CORS configuration
+    - __NOTE:__ Replace url in `<AllowedOrigin>` tag with your static website link from lab-001.
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
@@ -189,7 +189,7 @@ This occurs because web browsers expect resources to be requested from the same 
 </CORSRule>
 </CORSConfiguration>
 ```
-  - Click "Save"
+    - Click "Save"
 1. Click on the button Get External Content. You will see __CORS Working....!__ now.
 1. Lab End.
 
