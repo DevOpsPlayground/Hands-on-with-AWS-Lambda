@@ -381,24 +381,26 @@ cd lab-004_mapping_templates
     - Click the link 'logs' in the title labeled __Execution result: succeeded(logs)__
     - Click the log Group and look for the line: `Event is {u'name': u'Hello is it mean your looking for...'} `.
 
-1. Upload the lab-004_mapping_templates to s3 website.
+##### Upload new lab page for website.
+
+1. Upload files from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
 
 ##### /hello - GET - Integration Request
 
 1. Add a New Child Resource
     - APIs > `<your name>pg11` > Resources
     - __Configure as proxy resource:__ Leave blank
-    - __Resource Name:__ Random Number
-    - __Resource Path:__ `/random-number`
+    - __Resource Name:__ hello
+    - __Resource Path:__ `/hello`
     - __Enable API Gateway CORS:__ Yes
-1. Add a GET method to resource __/random-number__
+1. Add a GET method to resource __/hello__
     - Actions > Create Method
     - Under the resource a drop down will appear select __GET__ method and click the 'tick'.
-1. /random-number __GET__ - Setup
+1. /hello __GET__ - Setup
     - __Integration type:__ Lambda Function
     - __Use Lambda Proxy integration:__ Leave blank
     - __Lambda Region:__ `us-west-2`
-    - __Lambda Function:__ `<your name>_generateRandomNumber`
+    - __Lambda Function:__ `<your name>_myHelloMsg`
     - Click 'Save'
        - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
 
@@ -496,6 +498,10 @@ __Body Mapping Template__
 }
 ```
 
+
+
+
+1. Upload the lab-004_mapping_templates to s3 website.
 
 
 ### Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
