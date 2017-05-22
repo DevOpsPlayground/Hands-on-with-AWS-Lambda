@@ -413,7 +413,7 @@ cd lab-004_mapping_templates
     - __Lambda Function:__ `<your name>_myHelloMsg`
     - __Invoke with caller credentials:__ Leave Blank
     - __Credentials cache:__ Do not add caller credentials to cache key
-    - Body Mapping Templates - GET
+1. Body Mapping Templates - GET
     - __Request body passthrough:__ When there are no templates defined (recommended)
     - Add Mapping Template:
     - __Content-Type:__ `application/json`  
@@ -446,7 +446,7 @@ cd lab-004_mapping_templates
     - __Lambda Function:__ `<your name>_myHelloMsg`
     - __Invoke with caller credentials:__ Leave Blank
     - __Credentials cache:__ Do not add caller credentials to cache key
-    __Body Mapping Templates - GET__
+1. Body Mapping Templates - POST
     - __Request body passthrough:__ When there are no templates defined (recommended)
     - Add Mapping Template:
     - __Content-Type:__ `application/json`  
