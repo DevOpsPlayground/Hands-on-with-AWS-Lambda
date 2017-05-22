@@ -96,15 +96,15 @@ cd lab-002_cors
 1. Edit the file `cors.html` change the link and replace it with the text __YOUR_NAME__ with your bucket name.
     - __REPLACE:__ YOUR_NAME.playground11
     - __WITH:__ <YOUR NAME>.playground11
-```html
-<script type="text/javascript">
-  $(document).ready(function(){
-      $("button").click(function(){
-          $("#s3_cors").load("http://YOUR_NAME.playground11.s3-website-us-west-2.amazonaws.com/demo_text.txt");
+    ```html
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $("button").click(function(){
+              $("#s3_cors").load("http://YOUR_NAME.playground11.s3-website-us-west-2.amazonaws.com/demo_text.txt");
+          });
       });
-  });
-</script>
-```
+    </script>
+    ```
 1. Upload files from `cors.html, demo_text.html` folder `lab-002_website` to bucket `<your name>.playground11` your static website from __Lab-001__.
     1. __Select files__
         - (`cors.html, demo_text.txt`)
@@ -159,36 +159,36 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
     - __REPLACE:__ `YOUR_NAME.playground11`
     - __WITH:__ `<YOUR NAME>.cors.playground11`
     - __NOTE:__ The filename change at end of url: `cors_demo_text.txt`
-```html
-<script type="text/javascript">
-$(document).ready(function(){
-    $("button").click(function(){
-        $("#s3_cors").load("http://YOUR_NAME.cors.playground11.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt");
+    ```
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("#s3_cors").load("http://YOUR_NAME.cors.playground11.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt");
+        });
     });
-});
-</script>
-```
+    </script>
+    ```
 1. Click on the button __Get External Content__. You will notice that nothing happens. If you Enable the Javascript console you notice in Safari the error:
-```
-[Error] Origin http://meetup.playground11.s3-website-us-west-2.amazonaws.com is not allowed by Access-Control-Allow-Origin.
-[Error] Failed to load resource: Origin http://meetup.playground11.s3-website-us-west-2.amazonaws.com is not allowed by Access-Control-Allow-Origin. (cors_demo_text.txt, line 0)
-[Error] XMLHttpRequest cannot load http://meetup.cors.playground11.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt due to access control checks.
-```
-This occurs because web browsers expect resources to be requested from the same domain. To resolve this issue AWS S3 has a feature called CORS (Cross Origin Resource Sharing) if you enable this feature this will allow the webpage to request the content from another bucket.
+    ```
+    [Error] Origin http://meetup.playground11.s3-website-us-west-2.amazonaws.com is not allowed by Access-Control-Allow-Origin.
+    [Error] Failed to load resource: Origin http://meetup.playground11.s3-website-us-west-2.amazonaws.com is not allowed by Access-Control-Allow-Origin. (cors_demo_text.txt, line 0)
+    [Error] XMLHttpRequest cannot load http://meetup.cors.playground11.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt due to access control checks.
+    ```
+    This occurs because web browsers expect resources to be requested from the same domain. To resolve this issue AWS S3 has a feature called CORS (Cross Origin Resource Sharing) if you enable this feature this will allow the webpage to request the content from another bucket.
 1. With bucket `<your name>.cors.playground11` enable CORS configuration, add a new policy.
     - Permissions > CORS configuration
     - __NOTE:__ Replace url in `<AllowedOrigin>` tag with your static website link from lab-001.
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-<CORSRule>
-    <AllowedOrigin>http://<your name>.playground11.s3-website-us-west-2.amazonaws.com</AllowedOrigin>
-    <AllowedMethod>GET</AllowedMethod>
-    <MaxAgeSeconds>3000</MaxAgeSeconds>
-    <AllowedHeader>Authorization</AllowedHeader>
-</CORSRule>
-</CORSConfiguration>
-```
+    ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <CORSRule>
+        <AllowedOrigin>http://<your name>.playground11.s3-website-us-west-2.amazonaws.com</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>Authorization</AllowedHeader>
+    </CORSRule>
+    </CORSConfiguration>
+    ```
     - Click "Save"
 1. Click on the button Get External Content. You will see __CORS Working....!__ now.
 1. Lab End.
