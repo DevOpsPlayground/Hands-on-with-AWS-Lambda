@@ -449,7 +449,7 @@ cd lab-004_mapping_templates
 1. Body Mapping Templates - POST
     - __Request body passthrough:__ When there are no templates defined (recommended)
     - Add Mapping Template:
-    - __Content-Type:__ `application/json`  
+    - __Content-Type:__ `application/x-www-form-urlencoded`  
     - __Body Mapping Template__
     ```velocity
     ## convert HTML POST data or HTTP GET query string to JSON
