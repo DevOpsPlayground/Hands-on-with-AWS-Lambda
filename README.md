@@ -92,7 +92,7 @@ __Goal:__ Share resources from another s3 bucket with website from __lab-001_web
 
 __AWS Services:__ S3 (Static Web hosting, CORS)
 
-![lab-003 Static  Website using CORS](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-002.png)
+![lab-002 Static Website using CORS](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-002.png)
 
 ```bash
 cd lab-002_cors
@@ -199,6 +199,8 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
 __Goal:__ Create a lambda function that generates a random number and expose the function as a web service via API Gateway.
 
 __AWS Services:__ S3, Lambda, API Gateway,
+
+![lab-003 Static Website with API Gateway and Lambda](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-003.png)
 
 ##### Create Lambda function
 
