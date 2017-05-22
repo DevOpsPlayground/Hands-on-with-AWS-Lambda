@@ -92,6 +92,8 @@ __Goal:__ Share resources from another s3 bucket with website from __lab-001_web
 
 __AWS Services:__ S3 (Static Web hosting, CORS)
 
+![lab-003 Static  Website using CORS](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-002.png)
+
 ```bash
 cd lab-002_cors
 ```
