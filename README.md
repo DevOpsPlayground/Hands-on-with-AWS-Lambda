@@ -34,7 +34,7 @@ git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
 
-### Lab-001 - Build Static Website with s3 Bucket
+## Lab-001 - Build Static Website with s3 Bucket
 
 __Goal:__ Create a static website using s3 bucket
 
@@ -83,7 +83,7 @@ cd lab-001_website
 
 
 
-### Lab-002 - CORS - Sharing resources between s3 Buckets
+## Lab-002 - CORS - Sharing resources between s3 Buckets
 
 __Goal:__ Share resources from another s3 bucket with website from __lab-001_website__.
 
@@ -194,7 +194,7 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
 1. Lab End.
 
 
-### Lab-003 - Web Services with Lambda (Python)
+## Lab-003 - Web Services with Lambda (Python)
 
 __Goal:__ Create a lambda function that generates a random number and expose the function as a web service via API Gateway.
 
@@ -251,7 +251,7 @@ def lambda_handler(event, context):
 
 ```
 
-##### Exposing Lambda via API Gateway
+#### Exposing Lambda via API Gateway
 
 1. Create new API
     - Check 'New API'
@@ -275,7 +275,7 @@ def lambda_handler(event, context):
     - Click 'Save'
        - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
 
-##### Testing Lambda via API Gateway
+#### Testing Lambda via API Gateway
 
 1. Click __GET__ method under __/random-number__
 1. Click __TEST__ link in the box labeled 'Client
@@ -283,7 +283,7 @@ def lambda_handler(event, context):
 1. Under __Response Body__ you should see a random number. Click the blue button labelled 'Test' again at the bottom of the screen and you will see a new number appear.
 1. Test completed successfully
 
-##### Deploy API
+#### Deploy API
 
 1. Click Resources select __/__
 1. Select __Actions__ and select __Deploy API__
@@ -295,14 +295,14 @@ def lambda_handler(event, context):
 1. __Remember Invoke URL:__ `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev`
 
 
-##### Test API Deployment
+#### Test API Deployment
 
 1. Entering the Invoke URL into the web browser.
     - __NOTE:__ You will have to enter the method name e.g. `/random-number` to the end of the ___Invoke URL___
     - `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev/random-number`
 1. You should see a random number appear in the web browser.
 
-##### Integrate API into static website
+#### Integrate API into static website
 
 ```bash
 cd lab-003_lambda
@@ -323,7 +323,7 @@ cd lab-003_lambda
     - press button __Get External Content__
 1. Lab End.
 
-### Lab-004 - Posting Data with Lambda
+## Lab-004 - Posting Data with Lambda
 
 __Goal:__ Using a form a the s3 Bucket website that is processed using Lambda. You will upload a form to the website and write a lambda function and expose that function using API Gateway using mapping tempaltes to process the POST from the form.
 
@@ -506,12 +506,6 @@ cd lab-004_mapping_templates
     ```
 
     - Click 'Save'
-1. Deploy API
-    - Select __Actions__ and select __Deploy API__
-    - __Stage Name:__ dev
-    - __Stage description:__ Pre-production development stage
-1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
-
 
 #### Deploy API
 
@@ -522,7 +516,7 @@ cd lab-004_mapping_templates
 1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
 
 
-##### Upload new lab page `maptempl.html` to website.
+#### Upload new lab page `maptempl.html` to website.
 
 1. Edit the file `maptempl.html` from folder `lab-004_mapping_templates`
     - __REPLACE:__ `MY_API_GW_GET_REQUEST`
@@ -545,27 +539,6 @@ cd lab-004_mapping_templates
 
 
 
-##### /hello - POST - Integration Request
-
-1. Method Execution - POST
-    - __Integation type:__ Lambda Function
-    - __Use Lambda Proxy integration:__ Leave Blank
-    - __Lambda Region:__ us-west-2
-    - __Lambda Function:__ myHelloMsg
-    - __Invoke with caller credentials:__ Leave Blank
-    - __Credentials cache:__ Do not add caller credentials to cache key
-
-1. Body Mapping Templates - POST
-    - Request body passthrough: When there are no templates defined (recommended)
-    - Content-Type: `application/x-www-form-urlencoded`
-
-__Body Mapping Template__
-
-
-
-
-
-1. Upload the lab-004_mapping_templates to s3 website.
 
 
 ### Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
