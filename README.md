@@ -114,11 +114,6 @@ cd lab-002_cors
         - Click 'Next'
     1. __Set Properties__
         - Accept defaults, click 'Upload'
-1. Enable __Staitic website hosting__
-     - Properties > Static website hosting
-1. Select 'Use this bucket to host a Website'
-     - __Index document:__ index.html
-     - __Error document:__ error.html
      - Click 'Save'
 1. Open the __Endpoint__ in a web browser.
    - `http://<your name>.playground11.s3-website-us-west-2.amazonaws.com`
