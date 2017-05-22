@@ -426,6 +426,52 @@ cd lab-004_mapping_templates
     - __Stage description:__ Pre-production development stage
 1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
 
+##### /hello - POST - Integration Request
+
+1. Create New Resource on /
+    - APIs > `<your name>pg11` > Resources
+    - __Configure as proxy resource:__ Leave blank
+    - __Resource Name:__ hello
+    - __Resource Path:__ `/hello`
+    - __Enable API Gateway CORS:__ Yes
+    - Click 'Create Resource'
+1. Add a POST method to resource __/hello__
+    - Click Resource '/hello'
+    - Actions > Create Method
+    - Under the resource a drop down will appear select __POST__ method and click the 'tick'.
+1. /hello __POST__ - Setup
+    - Click '/hello' POST Resource
+    - __Integration type:__ Lambda Function
+    - __Use Lambda Proxy integration:__ Leave blank
+    - __Lambda Region:__ `us-west-2`
+    - __Lambda Function:__ `<your name>_myHelloMsg`
+    - Click 'Save'
+       - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
+1. Method Execution - POST
+    - __Integation type:__ Lambda Function
+    - __Use Lambda Proxy integration:__ Leave Blank
+    - __Lambda Region:__ `us-west-2`
+    - __Lambda Function:__ `<your name>_myHelloMsg`
+    - __Invoke with caller credentials:__ Leave Blank
+    - __Credentials cache:__ Do not add caller credentials to cache key
+    __Body Mapping Templates - GET__
+    - __Request body passthrough:__ When there are no templates defined (recommended)
+    - Add Mapping Template:
+        - __Content-Type:__ `application/json`  
+        - __Body Mapping Template__
+        ```json
+        {
+            "name":"$input.params('name')"
+        }
+        ```
+    - Click 'Save'
+1. Deploy API
+    - Select __Actions__ and select __Deploy API__
+    - __Stage Name:__ dev
+    - __Stage description:__ Pre-production development stage
+1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
+
+
 ##### Upload new lab page `maptempl.html` to website.
 
 1. Edit the file `maptempl.html` from folder `lab-004_mapping_templates`
