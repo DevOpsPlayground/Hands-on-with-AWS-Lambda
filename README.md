@@ -338,16 +338,15 @@ cd lab-004_mapping_templates
 ##### /hello - GET - Integration Request
 
 1. Method Execution - GET
-  - __Integation type:__ Lambda Function
-  - __Use Lambda Proxy integration:__ Leave Blank
-  - __Lambda Region:__ us-west-2
-  - __Lambda Function:__ myHelloMsg
-  - __Invoke with caller credentials:__ Leave Blank
-  - __Credentials cache:__
-Do not add caller credentials to cache key
+    - __Integation type:__ Lambda Function
+    - __Use Lambda Proxy integration:__ Leave Blank
+    - __Lambda Region:__ us-west-2
+    - __Lambda Function:__ myHelloMsg
+    - __Invoke with caller credentials:__ Leave Blank
+    - __Credentials cache:__ Do not add caller credentials to cache key
 1. Body Mapping Templates - GET
-  - Request body passthrough: When there are no templates defined (recommended)
-  - Content-Type: `application/json`
+    - Request body passthrough: When there are no templates defined (recommended)
+    - Content-Type: `application/json`
 
 
 __Body Mapping Template__
@@ -360,17 +359,16 @@ __Body Mapping Template__
 ##### /hello - POST - Integration Request
 
 1. Method Execution - POST
-  - __Integation type:__ Lambda Function
-  - __Use Lambda Proxy integration:__ Leave Blank
-  - __Lambda Region:__ us-west-2
-  - __Lambda Function:__ myHelloMsg
-  - __Invoke with caller credentials:__ Leave Blank
-  - __Credentials cache:__
-  Do not add caller credentials to cache key
+    - __Integation type:__ Lambda Function
+    - __Use Lambda Proxy integration:__ Leave Blank
+    - __Lambda Region:__ us-west-2
+    - __Lambda Function:__ myHelloMsg
+    - __Invoke with caller credentials:__ Leave Blank
+    - __Credentials cache:__ Do not add caller credentials to cache key
 
 1. Body Mapping Templates - POST
-  - Request body passthrough: When there are no templates defined (recommended)
-  - Content-Type: `application/x-www-form-urlencoded`
+    - Request body passthrough: When there are no templates defined (recommended)
+    - Content-Type: `application/x-www-form-urlencoded`
 
 __Body Mapping Template__
 ```velocity
