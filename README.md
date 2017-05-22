@@ -201,7 +201,7 @@ __AWS Services:__ S3, Lambda, API Gateway,
 1. Create New function
     1. __Select blueprint__
         - Select runtime: python 2.7
-        - Filter: hello-world-python
+        - Filter: Blank Function
     1. __Configure triggers__
         - Click 'Next'
     1. __Configure function__
@@ -209,6 +209,18 @@ __AWS Services:__ S3, Lambda, API Gateway,
         - Description: Function that generates a random number between 0 and 100
         - Runtime: Python 2.7
         - Lambda function code: Copy and Paste the code from file `lab-003_lambda\getSimpleRandomNumber.py` into the window. Leave the __Code entry type: Edit code inline__.
+        ```python
+        from __future__ import print_function
+        from random import randint
+
+        print('Loading function')
+
+        def lambda_handler(event, context):
+            myNumber = randint(0,100)
+            print("Random No. [ %s ]" % myNumber)
+            return myNumber
+
+        ```
         - __Lambda function handler and role__
             - __Handler:__ `lambda_function.lambda_handler`
             - __Role*:__ Choose an existing role
@@ -232,19 +244,6 @@ __AWS Services:__ S3, Lambda, API Gateway,
     - Click the log Group and look for the line: `Random No. [ 21 ]`. As the number is random it should look similar.
 
 
-__lambda_function.lambda_handler__
-```python
-from __future__ import print_function
-from random import randint
-
-print('Loading function')
-
-def lambda_handler(event, context):
-    myNumber = randint(0,100)
-    print("Random No. [ %s ]" % myNumber)
-    return myNumber
-
-```
 
 #### Exposing Lambda via API Gateway
 
