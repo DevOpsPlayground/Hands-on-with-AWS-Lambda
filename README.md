@@ -258,7 +258,7 @@ def lambda_handler(event, context):
     - __Name:__ `<your name>pg11`
     - __Description:__ test lab api
     - Click 'Create API'
-1. Add a New Child Resource 
+1. Add a New Child Resource
     - APIs > `<your name>pg11` > Resources
     - __Configure as proxy resource:__ Leave blank
     - __Resource Name:__ Random Number
@@ -335,7 +335,78 @@ cd lab-004_mapping_templates
 
 1. Upload the lab-004_mapping_templates to s3 website.
 
+
+##### Create Lambda function
+
+1. Services > Compute > Lambda
+1. Create New function
+    1. __Select blueprint__
+        - Select runtime: python 2.7
+        - Filter:
+    1. __Configure triggers__
+        - Click 'Next'
+    1. __Configure function__
+        - Name: `<your name>_myHelloMsg`
+        - Description: Function that presents a nice greeting
+        - Runtime: Python 2.7
+        - Lambda function code: Copy and Paste the code from file `lab-004_lambda\myHelloMsg.py` into the window. Leave the __Code entry type: Edit code inline__.
+        ```python
+        def lambda_handler(event, context):
+            # TODO implement
+            print("Event is %s" % event)
+            name = event.get("name") or "No msg submitted"
+            return "Hello from Lambda: %s " % (name)
+        ```
+        - __Lambda function handler and role__
+            - __Handler:__ `lambda_function.lambda_handler`
+            - __Role*:__ Choose an existing role
+            - __Existing role*:__ `lambdaExecutionRole`
+        - Accept Defaults for other settings
+        - Click 'Next'
+    1. __Review__
+        - Click 'Create function'
+        - __NOTE:__ Congratulations! Your Lambda function "meetup_generateRandomNumber" has been successfully created. You can now click on the "Test" button to input a test event and test your function.
+1. Testing your function
+    - Click 'Test'
+    - Input test event
+      - Sample event template : Hello World
+      ```json
+      {
+          "name":"Hello is it me your looking for..."
+      }
+      ```
+      - Click 'Save and test'
+      - You will see the message __Execution result: succeeded(logs)__ dotted line box the output from the function: "Hello from Lambda: Hello is it mean your looking for... "
+1. View Lambda logs
+    - Click the link 'logs' in the title labeled __Execution result: succeeded(logs)__
+    - Click the log Group and look for the line: `Event is {u'name': u'Hello is it mean your looking for...'} `.
+
+1. Upload the lab-004_mapping_templates to s3 website.
+
 ##### /hello - GET - Integration Request
+
+1. Add a New Child Resource
+    - APIs > `<your name>pg11` > Resources
+    - __Configure as proxy resource:__ Leave blank
+    - __Resource Name:__ Random Number
+    - __Resource Path:__ `/random-number`
+    - __Enable API Gateway CORS:__ Yes
+1. Add a GET method to resource __/random-number__
+    - Actions > Create Method
+    - Under the resource a drop down will appear select __GET__ method and click the 'tick'.
+1. /random-number __GET__ - Setup
+    - __Integration type:__ Lambda Function
+    - __Use Lambda Proxy integration:__ Leave blank
+    - __Lambda Region:__ `us-west-2`
+    - __Lambda Function:__ `<your name>_generateRandomNumber`
+    - Click 'Save'
+       - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
+
+
+
+
+
+
 
 1. Method Execution - GET
     - __Integation type:__ Lambda Function
@@ -424,6 +495,7 @@ __Body Mapping Template__
 #end
 }
 ```
+
 
 
 ### Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
