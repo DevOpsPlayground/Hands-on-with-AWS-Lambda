@@ -427,15 +427,7 @@ cd lab-004_mapping_templates
 1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
 
 ##### /hello - POST - Integration Request
-
-1. Create New Resource on /
-    - APIs > `<your name>pg11` > Resources
-    - __Configure as proxy resource:__ Leave blank
-    - __Resource Name:__ hello
-    - __Resource Path:__ `/hello`
-    - __Enable API Gateway CORS:__ Yes
-    - Click 'Create Resource'
-1. Add a POST method to resource __/hello__
+1. Add a GET method to resource __/hello__
     - Click Resource '/hello'
     - Actions > Create Method
     - Under the resource a drop down will appear select __POST__ method and click the 'tick'.
