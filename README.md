@@ -389,16 +389,29 @@ cd lab-004_mapping_templates
     - __Resource Name:__ hello
     - __Resource Path:__ `/hello`
     - __Enable API Gateway CORS:__ Yes
+    - Click 'Create Resource'
 1. Add a GET method to resource __/hello__
+    - Click Resource '/hello'
     - Actions > Create Method
     - Under the resource a drop down will appear select __GET__ method and click the 'tick'.
 1. /hello __GET__ - Setup
+    - Click '/hello' GET Resource
     - __Integration type:__ Lambda Function
     - __Use Lambda Proxy integration:__ Leave blank
     - __Lambda Region:__ `us-west-2`
     - __Lambda Function:__ `<your name>_myHelloMsg`
     - Click 'Save'
        - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
+1. Method Execution - GET
+    - __Integation type:__ Lambda Function
+    - __Use Lambda Proxy integration:__ Leave Blank
+    - __Lambda Region:__ us-west-2
+    - __Lambda Function:__ myHelloMsg
+    - __Invoke with caller credentials:__ Leave Blank
+    - __Credentials cache:__ Do not add caller credentials to cache key
+1. Body Mapping Templates - GET
+    - Request body passthrough: When there are no templates defined (recommended)
+    - Content-Type: `application/json`
 
 ##### Upload new lab page for website.
 
@@ -418,16 +431,7 @@ cd lab-004_mapping_templates
 
 
 
-1. Method Execution - GET
-    - __Integation type:__ Lambda Function
-    - __Use Lambda Proxy integration:__ Leave Blank
-    - __Lambda Region:__ us-west-2
-    - __Lambda Function:__ myHelloMsg
-    - __Invoke with caller credentials:__ Leave Blank
-    - __Credentials cache:__ Do not add caller credentials to cache key
-1. Body Mapping Templates - GET
-    - Request body passthrough: When there are no templates defined (recommended)
-    - Content-Type: `application/json`
+
 
 
 __Body Mapping Template__
