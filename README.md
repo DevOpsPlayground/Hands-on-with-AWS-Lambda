@@ -82,9 +82,9 @@ __AWS Services:__ S3 (Static Web hosting)
         - __Name:__ `css`
         - Click 'Save'
     1. Upload remaining files from `css` folder same steps as 2.
-1. Enable __Staitic website hosting__
+1. Enable __Static website hosting__
     - Properties > Static website hosting
-1. Select 'Use this bucket to host a Website'
+    - Select 'Use this bucket to host a Website'
     - __Index document:__ index.html
     - __Error document:__ error.html
     - Click 'Save'
