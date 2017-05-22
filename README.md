@@ -27,6 +27,18 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 - Permissions to write and execute lambda functions
 - __Region:__ Oregon
 
+#### IAM Roles needed for Labs
+
+If you attempt the labs in your own AWS account you will need to create the following roles:
+
+- AWSS3FullAccess
+- AWSLambdaFullAccess
+- AmazonAPIGatewayAdministrator
+- AWSLambdaExecute
+
+![IAM Roles needed for Labs](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-iam-roles.png)
+
+
 #### Checkout code from GitHub
 
 ```bash
@@ -42,10 +54,6 @@ __AWS Services:__ S3 (Static Web hosting)
 
 ![lab-001 Static Website](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-001.png)
 
-
-```bash
-cd lab-001_website
-```
 
 1. Create a new s3 Bucket
   1. __Name and region__
@@ -86,6 +94,17 @@ cd lab-001_website
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # Lab-002 - CORS - Sharing resources between s3 Buckets
 
 __Goal:__ Share resources from another s3 bucket with website from __lab-001_website__.
@@ -94,9 +113,6 @@ __AWS Services:__ S3 (Static Web hosting, CORS)
 
 ![lab-002 Static Website using CORS](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-002.png)
 
-```bash
-cd lab-002_cors
-```
 
 1. Edit the file `cors.html` change the link and replace it with the text __YOUR_NAME__ with your bucket name.
     - __REPLACE:__ YOUR_NAME.playground11
