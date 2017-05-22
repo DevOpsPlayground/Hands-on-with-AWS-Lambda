@@ -379,9 +379,11 @@ cd lab-004_mapping_templates
     - Click the log Group and look for the line: `Event is {u'name': u'Hello is it mean your looking for...'} `.
 
 
+#### Configuring API Gateway
+
 ##### /hello - GET - Integration Request
 
-1. Add a New Child Resource
+1. Create New Resource on /
     - APIs > `<your name>pg11` > Resources
     - __Configure as proxy resource:__ Leave blank
     - __Resource Name:__ hello
