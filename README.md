@@ -411,7 +411,7 @@ cd lab-004_mapping_templates
     - __Credentials cache:__ Do not add caller credentials to cache key
     __Body Mapping Templates - GET__
     - __Request body passthrough:__ When there are no templates defined (recommended)
-    - __Add Mapping Template___
+    - Add Mapping Template:
         - __Content-Type:__ `application/json`  
         - __Body Mapping Template__
         ```json
@@ -419,15 +419,18 @@ cd lab-004_mapping_templates
             "name":"$input.params('name')"
         }
         ```
+    - Click 'Save'
+1. Deploy API
+    - Select __Actions__ and select __Deploy API__
+    - __Stage Name:__ dev
+    - __Stage description:__ Pre-production development stage
+1. __Remember Invoke URL:__ `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev`
 
-
-
-
-##### Upload new lab page for website.
+##### Upload new lab page `maptempl.html` to website.
 
 1. Edit the file `maptempl.html` from folder `lab-004_mapping_templates`
     - __REPLACE:__ `MY_API_GW_GET_REQUEST`
-    - __WITH:__ Your api Gatway link when you deployed the API.
+    - __WITH:__ `https://...execute-api.us-west-2.amazonaws.com/dev/hello`
 1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
     1. __Select files__
        - (`maptempl.html`)
