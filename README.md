@@ -40,6 +40,9 @@ __Goal:__ Create a static website using s3 bucket
 
 __AWS Services:__ S3 (Static Web hosting)
 
+![lab-001 Static Website](https://devopsplayground11-lambda/diagrams/pg11-lab-001.png)
+
+
 ```bash
 cd lab-001_website
 ```
