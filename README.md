@@ -333,18 +333,6 @@ __AWS Services:__ S3, Lambda, API Gateway,
 cd lab-004_mapping_templates
 ```
 
-##### Upload new lab page for website.
-
-1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
-    1. __Select files__
-        - (`maptempl.html`)
-        - Click 'Next'
-    1. __Set Permissions__
-        - Manage Group Permissions > Everyone (Read)/Make public
-        - Click 'Next'
-    1. __Set Properties__
-        - Accept defaults, click 'Upload'
-
 ##### Create Lambda function
 
 1. Services > Compute > Lambda
@@ -410,8 +398,20 @@ cd lab-004_mapping_templates
     - Click 'Save'
        - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
 
+##### Upload new lab page for website.
 
-
+1. Edit the file `maptempl.html` from folder `lab-004_mapping_templates`
+    - __REPLACE:__ `MY_API_GW_GET_REQUEST`
+    - __WITH:__ Your api Gatway link when you deployed the API.
+1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
+    1. __Select files__
+       - (`maptempl.html`)
+       - Click 'Next'
+    1. __Set Permissions__
+       - Manage Group Permissions > Everyone (Read)/Make public
+       - Click 'Next'
+    1. __Set Properties__
+       - Accept defaults, click 'Upload'
 
 
 
