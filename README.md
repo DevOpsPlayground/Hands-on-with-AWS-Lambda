@@ -228,7 +228,7 @@ __AWS Services:__ S3, Lambda, API Gateway,
     - Input test event
       - Sample event template : Hello World
       ```json
-  {}
+      {}
       ```
       - Click 'Save and test'
       - You will see the message __Execution result: succeeded(logs)__ and a random number in a box with a dotted line.
@@ -254,26 +254,26 @@ def lambda_handler(event, context):
 ##### Exposing Lambda via API Gateway
 
 1. Create new API
-  - Check 'New API'
-  - __Name:__ `<your name>pg11`
-  - __Description:__ test lab api
-  - Click 'Create API'
-1. Add a New Child Resource
-  3- APIs > `<your name>pg11` > Resources
-  - __Configure as proxy resource:__ Leave blank
-  - __Resource Name:__ Random Number
-  - __Resource Path:__ `/random-number`
-  - __Enable API Gateway CORS:__ Yes
+    - Check 'New API'
+    - __Name:__ `<your name>pg11`
+    - __Description:__ test lab api
+    - Click 'Create API'
+1. Add a New Child Resource 
+    - APIs > `<your name>pg11` > Resources
+    - __Configure as proxy resource:__ Leave blank
+    - __Resource Name:__ Random Number
+    - __Resource Path:__ `/random-number`
+    - __Enable API Gateway CORS:__ Yes
 1. Add a GET method to resource __/random-number__
-  - Actions > Create Method
-  - Under the resource a drop down will appear select __GET__ method and click the 'tick'.
+    - Actions > Create Method
+    - Under the resource a drop down will appear select __GET__ method and click the 'tick'.
 1. /random-number __GET__ - Setup
-  - __Integration type:__ Lambda Function
-  - __Use Lambda Proxy integration:__ Leave blank
-  - __Lambda Region:__ `us-west-2`
-  - __Lambda Function:__ `<your name>_generateRandomNumber`
-  - Click 'Save'
-    - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
+    - __Integration type:__ Lambda Function
+    - __Use Lambda Proxy integration:__ Leave blank
+    - __Lambda Region:__ `us-west-2`
+    - __Lambda Function:__ `<your name>_generateRandomNumber`
+    - Click 'Save'
+       - Confirm the dialog 'Add Permission to Lambda Function', Click 'OK'
 
 ##### Testing Lambda via API Gateway
 
