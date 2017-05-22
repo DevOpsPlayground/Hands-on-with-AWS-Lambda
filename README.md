@@ -56,32 +56,32 @@ __AWS Services:__ S3 (Static Web hosting)
 
 
 1. Create a new s3 Bucket
-  1. __Name and region__
-      - __Name:__ `<your name>.playground11`
-      - __Region:__ `US West (Oregon)`
-      - __Copy settings from an existing bucket:__ Leave blank  
-      - Click 'Next'
-  1. __Set Properties:__
-      - Click 'Next'
-  1. __Set Permissions:__
-      - Click 'Next'
-  1. __Review:__
-      - Click 'Create Bucket'
+    1. __Name and region__
+        - __Name:__ `<your name>.playground11`
+        - __Region:__ `US West (Oregon)`
+        - __Copy settings from an existing bucket:__ Leave blank  
+        - Click 'Next'
+    1. __Set Properties:__
+        - Click 'Next'
+    1. __Set Permissions:__
+        - Click 'Next'
+    1. __Review:__
+        - Click 'Create Bucket'
 1. Upload files from folder `lab-001_website`
-  1. __Select files__
-      - (all files minus `css` folder)
-      - Click 'Next'
-  1. __Set Permissions__
-      - Manage Group Permissions > Everyone (Read)/Make public
-      - Click 'Next'
-  1. __Set Properties__
-      - Click 'Upload'
+    1. __Select files__
+        - (all files minus `css` folder)
+        - Click 'Next'
+    1. __Set Permissions__
+        - Manage Group Permissions > Everyone (Read)/Make public
+        - Click 'Next'
+    1. __Set Properties__
+        - Click 'Upload'
 1. Create subfolder `css` using S3 web console
-  1. Goto bucket `<your name>.playground11`
-      - Click Create folder
-      - __Name:__ `css`
-      - Click 'Save'
-  1. Upload remaining files from `css` folder same steps as 2.
+    1. Goto bucket `<your name>.playground11`
+        - Click Create folder
+        - __Name:__ `css`
+        - Click 'Save'
+    1. Upload remaining files from `css` folder same steps as 2.
 1. Enable __Staitic website hosting__
     - Properties > Static website hosting
 1. Select 'Use this bucket to host a Website'
@@ -92,16 +92,7 @@ __AWS Services:__ S3 (Static Web hosting)
    - `http://<your name>.playground11.s3-website-us-west-2.amazonaws.com`
 1. Lab End.
 
-###
-###
-###
-###
-###
-###
-###
-###
-###
-###
+
 
 
 # Lab-002 - CORS - Sharing resources between s3 Buckets
