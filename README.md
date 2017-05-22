@@ -103,19 +103,6 @@ __AWS Services:__ S3 (Static Web hosting, CORS)
 
 ![lab-002 Static Website using CORS](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-002.png)
 
-
-1. Edit the file `cors.html` change the link and replace it with the text __YOUR_NAME__ with your bucket name.
-    - __REPLACE:__ YOUR_NAME.playground11
-    - __WITH:__ <YOUR NAME>.playground11
-    ```html
-    <script type="text/javascript">
-      $(document).ready(function(){
-          $("button").click(function(){
-              $("#s3_cors").load("http://YOUR_NAME.playground11.s3-website-us-west-2.amazonaws.com/demo_text.txt");
-          });
-      });
-    </script>
-    ```
 1. Upload files from `cors.html, demo_text.html` folder `lab-002_website` to bucket `<your name>.playground11` your static website from __Lab-001__.
     1. __Select files__
         - (`cors.html, demo_text.txt`)
@@ -162,9 +149,9 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
 1. Open the __Endpoint__ in a web browser.
     - `http://<your name>.cors.playground11.s3-website-us-west-2.amazonaws.com`
 1. Edit the file `lab-002_cors\cors.html` change the Javascript link again to the new link from the new S3 bucket website.
-    - __REPLACE:__ `YOUR_NAME.playground11`
-    - __WITH:__ `<YOUR NAME>.cors.playground11`
-    - __NOTE:__ The filename change at end of url: `cors_demo_text.txt`
+    - __REPLACE:__ `demo_text.txt`
+    - __WITH:__ `http://<YOUR NAME>.cors.playground11.s3-website-us-west-2.amazonaws.com/cors_demo_text.txt`
+    - __NOTE:__ `<YOUR NAME>` should be replaced with your bucket name. e.g.
     ```
     <script type="text/javascript">
     $(document).ready(function(){
