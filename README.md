@@ -383,7 +383,7 @@ cd lab-004_mapping_templates
 
 ##### Upload new lab page for website.
 
-1. Upload files from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
+1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
 
 ##### /hello - GET - Integration Request
 
