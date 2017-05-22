@@ -287,19 +287,19 @@ def lambda_handler(event, context):
 
 1. Click Resources select __/__
 1. Select __Actions__ and select __Deploy API__
-  - Deploy API
-  - __Deployment stage:__ [New Stage]
-    - __Stage Name:__ dev
-    - __Stage description:__ Pre-production development stage
-  - __Deployment description:__
+    - Deploy API
+    - __Deployment stage:__ [New Stage]
+        - __Stage Name:__ dev
+        - __Stage description:__ Pre-production development stage
+    - __Deployment description:__
 1. __Remember Invoke URL:__ `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev`
 
 
 ##### Test API Deployment
 
 1. Entering the Invoke URL into the web browser.
-  - __NOTE:__ You will have to enter the method name e.g. `/random-number` to the end of the ___Invoke URL___
-  - `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev/random-number`
+    - __NOTE:__ You will have to enter the method name e.g. `/random-number` to the end of the ___Invoke URL___
+    - `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev/random-number`
 1. You should see a random number appear in the web browser.
 
 ##### Integrate API into static website
@@ -312,15 +312,15 @@ cd lab-003_lambda
 1. Update the file to S3 bucket `<Your name>.playground11` remember to set read permission for everyone.
 1. load the website in a web browser
 1. Click the button labelled 'Get External Content'
-  - __IT WILL FAIL...!__
-  - View Javascript in your website and you'll see message like `CORS header 'Access-Control-Allow-Origin' missing`.
-    - Previous lab we did a example of CORS we need to enable the API here to all the website to access the link from a diffent site.
+    - __IT WILL FAIL...!__
+    - View Javascript in your website and you'll see message like `CORS header 'Access-Control-Allow-Origin' missing`.
+        - Previous lab we did a example of CORS we need to enable the API here to all the website to access the link from a diffent site.
 1. `/random-number`, __GET__ method then Actions > __Enable CORS__
 1. You need to redeploy the API, __Deploy API__
-  - __Development stage:__ dev
-  - __Development description:__ lab-003
+    - __Development stage:__ dev
+    - __Development description:__ lab-003
 1. Refesh the web page, __API Gateway__
-  - press button __Get External Content__
+    - press button __Get External Content__
 1. Lab End.
 
 ### Lab-004 - Posting Data with Lambda
