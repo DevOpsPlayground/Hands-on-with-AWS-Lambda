@@ -333,8 +333,17 @@ __AWS Services:__ S3, Lambda, API Gateway,
 cd lab-004_mapping_templates
 ```
 
-1. Upload the lab-004_mapping_templates to s3 website.
+##### Upload new lab page for website.
 
+1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
+    1. __Select files__
+        - (`maptempl.html`)
+        - Click 'Next'
+    1. __Set Permissions__
+        - Manage Group Permissions > Everyone (Read)/Make public
+        - Click 'Next'
+    1. __Set Properties__
+        - Accept defaults, click 'Upload'
 
 ##### Create Lambda function
 
@@ -381,9 +390,6 @@ cd lab-004_mapping_templates
     - Click the link 'logs' in the title labeled __Execution result: succeeded(logs)__
     - Click the log Group and look for the line: `Event is {u'name': u'Hello is it mean your looking for...'} `.
 
-##### Upload new lab page for website.
-
-1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
 
 ##### /hello - GET - Integration Request
 
