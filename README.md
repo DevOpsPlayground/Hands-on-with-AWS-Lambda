@@ -34,7 +34,7 @@ git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
 
-## Lab-001 - Build Static Website with s3 Bucket
+# Lab-001 - Build Static Website with s3 Bucket
 
 __Goal:__ Create a static website using s3 bucket
 
@@ -86,7 +86,7 @@ cd lab-001_website
 
 
 
-## Lab-002 - CORS - Sharing resources between s3 Buckets
+# Lab-002 - CORS - Sharing resources between s3 Buckets
 
 __Goal:__ Share resources from another s3 bucket with website from __lab-001_website__.
 
@@ -194,7 +194,7 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
 1. Lab End.
 
 
-## Lab-003 - Web Services with Lambda (Python)
+# Lab-003 - Web Services with Lambda (Python)
 
 __Goal:__ Create a lambda function that generates a random number and expose the function as a web service via API Gateway.
 
@@ -325,15 +325,14 @@ cd lab-003_lambda
     - press button __Get External Content__
 1. Lab End.
 
-## Lab-004 - Posting Data with Lambda
+# Lab-004 - Posting Data with Lambda
 
 __Goal:__ Using a form a the s3 Bucket website that is processed using Lambda. You will upload a form to the website and write a lambda function and expose that function using API Gateway using mapping tempaltes to process the POST from the form.
 
 __AWS Services:__ S3, Lambda, API Gateway,
 
-```bash
-cd lab-004_mapping_templates
-```
+![lab-004 Static Website with API Gateway and Lambda and using API Gatway Mapping Template](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-004.png)
+
 
 #### Create Lambda function
 
@@ -543,7 +542,7 @@ cd lab-004_mapping_templates
 
 
 
-### Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
+# Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
 
 __Goal:__ Using AWS Kinesis Streams to create a real-time data reporting using Lambda function to
 
