@@ -1,5 +1,11 @@
 # Hands On Serverless Computing with Lambda
 
+#### Login
+
+- __AWS Console:__ `https://devopsplayground.signin.aws.amazon.com/console`
+- __Username:__ `<TBA>`
+- __Password:__ `<TBA>`
+
 The topics for this hands-on session will be AWS Lambda, function as a service (FaaS). During this Playground you will create a website hosted on AWS S3 using AWS Lambda and Amazon API Gateway to add dynamic functionality to the site.
 
 ![Steps](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-intro-steps.png)
@@ -10,38 +16,13 @@ Each step will be associated with a Lab to complete build on the previous lab to
 1. [Labs Static Website sample](http://meetup.playground11.s3-website-us-west-2.amazonaws.com/index.html)
 1. All labs were done in US Oregon Region
 
-## Lab
-
-1. 001 - Build Static Website with s3 Bucket
-1. 002 - CORS - Sharing resources between s3 Buckets
-1. 003 - Web Services with Lambda (Python)
-1. 004 - Posting Data with Lambda (Python)
-[create an anchor](#anchors-in-markdown)
-
-(#some-markdown-heading)
+## Labs
 
 1. [Lab-001 - Build Static Website with s3 Bucket](#lab-001---build-static-website-with-s3-bucket)
+1. [Lab-002 - Sharing resources between s3 Buckets](#lab-002--sharing-resources-between-s3-buckets)
+1. [Lab-003 - Web Services with Lambda](#lab-003---web-services-with-lambda)
+1. [Lab-004 - Posting Data with Lambda](#lab-004---posting-data-with-lambda)
 
-1. [Lab-001 Build Static Website with s3 Bucket](#lab-001-build-static-website-with-s3-bucket)
-
-[create an anchor](#anchors-in-markdown)
-
-[create an anchor](#create-an-anchor)
-
-
-
-
-#### Login
-
-- __AWS Console:__ `https://devopsplayground.signin.aws.amazon.com/console`
-- __Username:__ `<TBA>`
-- __Password:__ `<TBA>`
-
-
-
-## anchors in markdown
-
-## create an anchor
 
 #### Prerequisites
 - Login to AWS account
@@ -129,7 +110,7 @@ __AWS Services:__ S3 (Static Web hosting)
 ##
 ##
 
-# Lab-002 CORS - Sharing resources between s3 Buckets
+# Lab-002 - Sharing resources between s3 Buckets
 
 __Goal:__ Share resources from another s3 bucket with website from __lab-001_website__.
 
@@ -231,7 +212,7 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
 ##
 ##
 
-# Lab-003 - Web Services with Lambda (Python)
+# Lab-003 - Web Services with Lambda
 
 __Goal:__ Create a lambda function that generates a random number and expose the function as a web service via API Gateway.
 
