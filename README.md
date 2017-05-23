@@ -2,6 +2,10 @@
 
 The topics for this hands-on session will be AWS Lambda, function as a service (FaaS). During this Playground you will create a website hosted on AWS S3 using AWS Lambda and Amazon API Gateway to add dynamic functionality to the site.
 
+![Steps](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-intro-steps.png)
+
+
+
 1. [GitHub - README.md](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda)
 1. [Labs Static Website sample](http://meetup.playground11.s3-website-us-west-2.amazonaws.com/index.html)
 1. All labs were done in US Oregon Region
@@ -11,8 +15,7 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 1. 001 - Build Static Website with s3 Bucket
 1. 002 - CORS - Sharing resources between s3 Buckets
 1. 003 - Web Services with Lambda (Python)
-1. 004 - Posting Data with Lambda
-1. 005 - Kinesis - Realtime Data Processing
+1. 004 - Posting Data with Lambda (Python)
 
 #### Login
 
@@ -102,8 +105,6 @@ __AWS Services:__ S3 (Static Web hosting)
 ##
 ##
 ##
-
-
 
 # Lab-002 - CORS - Sharing resources between s3 Buckets
 
@@ -196,6 +197,16 @@ In order to understand CORS (Cross Origin Resource Sharing) you need to create a
 1. Click on the button Get External Content. You will see __CORS Working....!__ now.
 1. Lab End.
 
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
 
 # Lab-003 - Web Services with Lambda (Python)
 
@@ -309,10 +320,6 @@ __AWS Services:__ S3, Lambda, API Gateway,
 
 #### Integrate API into static website
 
-```bash
-cd lab-003_lambda
-```
-
 1.  Edit the file `apigw.html` change the link and replace replace the string 'MY_API_GW_REQUEST' with the API Gateway Invoke URL with method name `/random-number` in it. e.g. `https://3xtidh28cf.execute-api.us-west-2.amazonaws.com/dev/random-number`
 1. Update the file to S3 bucket `<Your name>.playground11` remember to set read permission for everyone.
 1. load the website in a web browser
@@ -327,6 +334,17 @@ cd lab-003_lambda
 1. Refesh the web page, __API Gateway__
     - press button __Get External Content__
 1. Lab End.
+
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
 
 # Lab-004 - Posting Data with Lambda
 
@@ -535,6 +553,16 @@ __AWS Services:__ S3, Lambda, API Gateway,
     1. __Set Properties__
        - Accept defaults, click 'Upload'
 
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
 
 # Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
 
