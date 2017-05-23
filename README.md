@@ -20,7 +20,7 @@ Each step will be associated with a Lab to complete build on the previous lab to
 
 (#some-markdown-heading)
 
-1. [Lab-001 - Build Static Website with s3 Bucket](#lab-001-build-static-website-with-s3)
+1. [Lab-001 - Build Static Website with s3 Bucket](#lab-001-build-static-website-with-s3-bucket)
 
 1. [Lab-001 Build Static Website with s3 Bucket](#lab-001-build-static-website-with-s3-bucket)
 
@@ -72,7 +72,7 @@ git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
 
-# Lab-001 Build Static Website with s3 Bucket
+# Lab-001 - Build Static Website with s3 Bucket
 
 __Goal:__ Create a static website using s3 bucket
 
@@ -129,7 +129,7 @@ __AWS Services:__ S3 (Static Web hosting)
 ##
 ##
 
-# Lab-002 - CORS - Sharing resources between s3 Buckets
+# Lab-002 CORS - Sharing resources between s3 Buckets
 
 __Goal:__ Share resources from another s3 bucket with website from __lab-001_website__.
 
