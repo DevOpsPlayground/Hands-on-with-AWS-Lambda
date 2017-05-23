@@ -4,18 +4,32 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 
 ![Steps](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-intro-steps.png)
 
-
+Each step will be associated with a Lab to complete build on the previous lab to progress. A Completed lab website is a available for view (see ref[2]). The labs have been tested with the `US Oregon` region.
 
 1. [GitHub - README.md](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda)
 1. [Labs Static Website sample](http://meetup.playground11.s3-website-us-west-2.amazonaws.com/index.html)
 1. All labs were done in US Oregon Region
 
-## Labs
+## Lab
 
 1. 001 - Build Static Website with s3 Bucket
 1. 002 - CORS - Sharing resources between s3 Buckets
 1. 003 - Web Services with Lambda (Python)
 1. 004 - Posting Data with Lambda (Python)
+[create an anchor](#anchors-in-markdown)
+
+(#some-markdown-heading)
+
+1. [Lab-001 - Build Static Website with s3 Bucket](#lab-001---build-static-website-with-s3)
+
+1. [Lab-001 Build Static Website with s3 Bucket](#lab-001-build-static-website-with-s3-bucket)
+
+[create an anchor](#anchors-in-markdown)
+
+[create an anchor](#create-an-anchor)
+
+
+
 
 #### Login
 
@@ -24,11 +38,20 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 - __Password:__ `<TBA>`
 
 
+
+## anchors in markdown
+
+## create an anchor
+
 #### Prerequisites
 - Login to AWS account
 - Permissions to create S3 Buckets
 - Permissions to write and execute lambda functions
 - __Region:__ Oregon
+
+
+# anchors in markdown
+
 
 #### IAM Roles needed for Labs
 
@@ -49,7 +72,7 @@ git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
 
-# Lab-001 - Build Static Website with s3 Bucket
+# Lab-001 Build Static Website with s3 Bucket
 
 __Goal:__ Create a static website using s3 bucket
 
