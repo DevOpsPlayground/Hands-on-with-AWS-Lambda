@@ -22,7 +22,7 @@ Each step will be associated with a Lab to complete build on the previous lab to
 
 1. [Lab-001 - Build Static Website with s3 Bucket](#lab-001---build-static-website-with-s3-bucket)
 
-1. [Lab-001 Build Static Website with s3 Bucket](#lab-001---build-static-website-with-s3-bucket)
+1. [Lab-001 Build Static Website with s3 Bucket](#lab-001-build-static-website-with-s3-bucket)
 
 [create an anchor](#anchors-in-markdown)
 
