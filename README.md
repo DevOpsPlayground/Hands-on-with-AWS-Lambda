@@ -51,6 +51,7 @@ cd devopsplayground11-lambda
 # Lab-001 - Build Static Website with s3 Bucket
 
 __Goal:__ Create a static website using s3 bucket
+
 __AWS Services:__ S3 (Static Web hosting)
 
 The purpose for this lab is to create a static website which will form the base for the later labs. During the lab you will create a S3 bucket and upload the files that you download from GitHub for this playground and upload them to the S3 bucket. You will then enable the S3 Static Web Hosting on the bucket, which will provide you with an endpoint from which you can continue the labs.
