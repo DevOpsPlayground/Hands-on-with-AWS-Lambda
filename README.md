@@ -332,7 +332,7 @@ __AWS Services:__ S3, Lambda, API Gateway,
 1. Services > Compute > Lambda
 1. Create New function
     1. __Select blueprint__
-        - Select runtime: python 2.7
+          - Select runtime: python 2.7
         - Filter:
     1. __Configure triggers__
         - Click 'Next'
@@ -541,7 +541,4 @@ __Goal:__ Using AWS Kinesis Streams to create a real-time data reporting using L
 
 __AWS Services:__ S3, Lambda, API Gateway, Kinesis Streams, DynamoDB
 
-```bash
-cd lab-005_kinesis
-
-```
+![lab-005 Processing Kinesis Streams with Lambda](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-005.png)
