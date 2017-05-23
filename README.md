@@ -23,6 +23,8 @@ Each step will be associated with a Lab to complete build on the previous lab to
 1. [Lab-004 - Posting Data with Lambda](#lab-004---posting-data-with-lambda)
 
 
+[lab-006 - test doc](doc/test.md)
+
 ### Prerequisites
 - Login to AWS account
 - Permissions to create S3 Buckets
