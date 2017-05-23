@@ -1,6 +1,6 @@
 # Hands On Serverless Computing with Lambda
 
-[Sample Site](http://static.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/index.html){:target="_blank"} | [AWS Console](https://devopsplayground.signin.aws.amazon.com/console)
+[Sample Site](http://static.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/index.html) | [AWS Console](https://devopsplayground.signin.aws.amazon.com/console)
 
 #### Login
 
