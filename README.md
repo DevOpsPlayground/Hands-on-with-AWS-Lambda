@@ -253,7 +253,8 @@ __AWS Services:__ S3, Lambda, API Gateway,
     - __Description:__ test lab api
     - Click 'Create API'
 1. Add a New Child Resource
-    - APIs > `<your name>pg11` > Resources
+    - APIs > `<your name>pg11` > Resources > /
+    - Click on Actions > 'Create Resource'
     - __Configure as proxy resource:__ Leave blank
     - __Resource Name:__ Random Number
     - __Resource Path:__ `/random-number`
