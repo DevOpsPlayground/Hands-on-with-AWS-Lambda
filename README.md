@@ -51,10 +51,18 @@ cd devopsplayground11-lambda
 
 ###  Safari : Enable the hidden Develop menu
 
-![Sarfari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
+Some labs will require having access to a javascript to see Browser errors like lab-002 for Cross Origin Resource Sharing. Safari has these development tools built-in however they need to be enabled.
 
-![Sarfari Advanced Preferences Pane](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_adv_pane.png)
+#### Steps
+1. Safari > Preferences
+1. Check 'Show Develop menu in menu bar' (see image Safari Advanced Preferences red box)
+1. Safari menu bar should now show as in 'Safari Menu Bar' image below
 
+#### Safari Advanced Preferences
+![Safari Advanced Preferences Pane](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_adv_pane.png)
+
+#### Safari Menu bar
+![Safari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
 
 
 
