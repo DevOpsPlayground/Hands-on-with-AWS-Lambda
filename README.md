@@ -14,7 +14,6 @@ Each step will be associated with a Lab to complete build on the previous lab to
 
 1. [GitHub - README.md](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda)
 1. [Labs Static Website sample](http://meetup.playground11.s3-website-us-west-2.amazonaws.com/index.html)
-1. All labs were done in US Oregon Region
 
 ## Labs
 
@@ -24,17 +23,14 @@ Each step will be associated with a Lab to complete build on the previous lab to
 1. [Lab-004 - Posting Data with Lambda](#lab-004---posting-data-with-lambda)
 
 
-#### Prerequisites
+### Prerequisites
 - Login to AWS account
 - Permissions to create S3 Buckets
 - Permissions to write and execute lambda functions
 - __Region:__ Oregon
 
 
-# anchors in markdown
-
-
-#### IAM Roles needed for Labs
+### IAM Roles needed for Labs
 
 If you attempt the labs in your own AWS account you will need to create the following roles:
 
@@ -45,8 +41,7 @@ If you attempt the labs in your own AWS account you will need to create the foll
 
 ![IAM Roles needed for Labs](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-iam-roles.png)
 
-
-#### Checkout code from GitHub
+### Checkout code from GitHub
 
 ```bash
 git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
@@ -56,8 +51,11 @@ cd devopsplayground11-lambda
 # Lab-001 - Build Static Website with s3 Bucket
 
 __Goal:__ Create a static website using s3 bucket
-
 __AWS Services:__ S3 (Static Web hosting)
+
+The purpose for this lab is to create a static website which will form the base for the later labs. During the lab you will create a S3 bucket and upload the files that you download from GitHub for this playground and upload them to the S3 bucket. You will then enable the S3 Static Web Hosting on the bucket, which will provide you with an endpoint from which you can continue the labs.
+
+The diagram below shows the architecture for this lab. We will be only using the S3 service and placing some files with into a S3 bucket.
 
 ![lab-001 Static Website](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-001.png)
 
@@ -99,6 +97,10 @@ __AWS Services:__ S3 (Static Web hosting)
    - `http://<your name>.playground11.s3-website-us-west-2.amazonaws.com`
 1. Lab End.
 
+## Lab-001 - Conclusion
+
+During this lab you created a S3 Bucket and understood settings permissions and how to set a bucket up for hosting a website.
+
 ##
 ##
 ##
@@ -113,7 +115,6 @@ __AWS Services:__ S3 (Static Web hosting)
 # Lab-002 - Sharing resources between s3 Buckets
 
 __Goal:__ Share resources from another s3 bucket with website from __lab-001_website__.
-
 __AWS Services:__ S3 (Static Web hosting, CORS)
 
 ![lab-002 Static Website using CORS](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-lab-002.png)
