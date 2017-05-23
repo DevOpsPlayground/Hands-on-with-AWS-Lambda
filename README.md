@@ -18,7 +18,7 @@ Each step will be associated with a Lab to complete build on the previous lab to
 ## Labs
 
 1. [Lab-001 - Build Static Website with s3 Bucket](#lab-001---build-static-website-with-s3-bucket)
-1. [Lab-002 - Sharing resources between s3 Buckets](#lab-002--sharing-resources-between-s3-buckets)
+1. [Lab-002 - Sharing resources between s3 Buckets](#lab-002---sharing-resources-between-s3-buckets)
 1. [Lab-003 - Web Services with Lambda](#lab-003---web-services-with-lambda)
 1. [Lab-004 - Posting Data with Lambda](#lab-004---posting-data-with-lambda)
 
@@ -47,6 +47,16 @@ If you attempt the labs in your own AWS account you will need to create the foll
 git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
+
+
+###  Safari : Enable the hidden Develop menu
+
+![Sarfari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
+
+![Sarfari Advanced Preferences Pane](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_adv_pane.png)
+
+
+
 
 # Lab-001 - Build Static Website with s3 Bucket
 
