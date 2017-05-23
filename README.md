@@ -17,12 +17,6 @@ Each step will be associated with a Lab to complete build on the previous lab to
 
 ## Labs
 
-1. [Lab-001 - Build Static Website with s3 Bucket](#lab-001---build-static-website-with-s3-bucket)
-1. [Lab-002 - Sharing resources between s3 Buckets](#lab-002---sharing-resources-between-s3-buckets)
-1. [Lab-003 - Web Services with Lambda](#lab-003---web-services-with-lambda)
-1. [Lab-004 - Posting Data with Lambda](#lab-004---posting-data-with-lambda)
-
-
 1. [Lab-001 - Build Static Website with s3 Bucket](doc/lab-001.md)
 1. [Lab-002 - Sharing resources between s3 Buckets](doc/lab-002.md)
 1. [Lab-003 - Web Services with Lambda](doc/lab-003.md)
