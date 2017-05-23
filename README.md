@@ -12,10 +12,7 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 
 ![Steps](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-intro-steps.png)
 
-Each step will be associated with a Lab to complete build on the previous lab to progress. A Completed lab website is a available for view (see ref[2]). The labs have been tested with the `US Oregon` region.
-
-1. [GitHub - README.md](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda)
-1. [Labs Static Website sample](http://meetup.playground11.s3-website-us-west-2.amazonaws.com/index.html)
+Each step will be associated with a Lab to complete build on the previous lab to progress. A Completed lab website is a available for view from the link above 'Sample Site'. All labs have been tested with the `US Oregon` region.
 
 ## Labs
 
@@ -23,7 +20,6 @@ Each step will be associated with a Lab to complete build on the previous lab to
 1. [Lab-002 - Sharing resources between s3 Buckets](doc/lab-002.md)
 1. [Lab-003 - Web Services with Lambda](doc/lab-003.md)
 1. [Lab-004 - Posting Data with Lambda](doc/lab-004.md)
-
 
 
 ### Prerequisites
@@ -66,3 +62,17 @@ Some labs will require having access to a javascript to see Browser errors like 
 
 #### Image: Safari Menu bar
 ![Safari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
+
+
+# What is Serverless ?
+
+A computing model where the existence of servers are hidden from developers. Within AWS eco-system Lambda is only serverless service. The the purpose of these labs we will look at S3, Lambda, and API Gateway.
+
+- __Storage__ - S3
+- __Compute__ - Lambda
+- __Database__ - DynamoDB, ElasticCache
+- __API Proxy__ - API Gateway
+- __Analytics__ - AWS Kinesis
+- __Messaging & Queues__ - AWS SNS, SQS
+- __State Management__ - AWS Step Functions
+- __Diagnostics__ - AWS X-Ray
