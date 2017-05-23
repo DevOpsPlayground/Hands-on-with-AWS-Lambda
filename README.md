@@ -366,8 +366,9 @@ __AWS Services:__ S3, Lambda, API Gateway,
 1. Services > Compute > Lambda
 1. Create New function
     1. __Select blueprint__
-          - Select runtime: python 2.7
+        - Select runtime: python 2.7
         - Filter:
+        - Click 'Blank Function'
     1. __Configure triggers__
         - Click 'Next'
     1. __Configure function__
@@ -390,7 +391,6 @@ __AWS Services:__ S3, Lambda, API Gateway,
         - Click 'Next'
     1. __Review__
         - Click 'Create function'
-        - __NOTE:__ Congratulations! Your Lambda function "meetup_generateRandomNumber" has been successfully created. You can now click on the "Test" button to input a test event and test your function.
 1. Testing your function
     - Click 'Test'
     - Input test event
@@ -412,7 +412,9 @@ __AWS Services:__ S3, Lambda, API Gateway,
 #### Setup New Resource /hello  
 
 1. Create New Resource on /
-    - APIs > `<your name>pg11` > Resources
+    - Select `<your name>pg11` from APIs
+    - Click 'Resources'
+    - Click Actions > 'Create Resource'
     - __Configure as proxy resource:__ Leave blank
     - __Resource Name:__ hello
     - __Resource Path:__ `/hello`
@@ -422,8 +424,8 @@ __AWS Services:__ S3, Lambda, API Gateway,
 #### /hello - GET - Integration Request
 
 1. Add a GET method to resource __/hello__
-    - Click Resource '/hello'
-    - Actions > Create Method
+    - Select Resource `/hello`
+    - Click Actions > 'Create Method'
     - Under the resource a drop down will appear select __GET__ method and click the 'tick'.
 1. /hello __GET__ - Setup
     - Click '/hello' GET Resource
@@ -456,7 +458,7 @@ __AWS Services:__ S3, Lambda, API Gateway,
 #### /hello - POST - Integration Request
 
 1. Add a POST method to resource __/hello__
-    - Click Resource '/hello'
+    - Click Resource `/hello`
     - Actions > Create Method
     - Under the resource a drop down will appear select __POST__ method and click the 'tick'.
 1. /hello __POST__ - Setup
@@ -540,24 +542,27 @@ __AWS Services:__ S3, Lambda, API Gateway,
 1. Deploy API
     - Select __Actions__ and select __Deploy API__
     - __Stage Name:__ dev
-    - __Stage description:__ Pre-production development stage
+    - __Stage description:__ Pre-production development stage, lab-004
 1. __Remember Invoke URL:__ `https://......execute-api.us-west-2.amazonaws.com/dev`
 
 
 #### Upload new lab page `maptempl.html` to website.
 
 1. Edit the file `maptempl.html` from folder `lab-004_mapping_templates`
-    - __REPLACE:__ `MY_API_GW_GET_REQUEST`
+    - __REPLACE:__ `MY_API_GW_GET_REQUEST` and `MY_API_GW_POST_REQUEST`
     - __WITH:__ `https://......execute-api.us-west-2.amazonaws.com/dev/hello`
-1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11`
-    1. __Select files__
-       - (`maptempl.html`)
-       - Click 'Next'
-    1. __Set Permissions__
-       - Manage Group Permissions > Everyone (Read)/Make public
-       - Click 'Next'
-    1. __Set Properties__
-       - Accept defaults, click 'Upload'
+1. Upload file `maptempl.html` from folder `lab-004_mapping_templates` to S3 bucket `<your name>.playground11` remember to set permissions.
+
+#### Run lab on Static Website
+
+You will be testing two HTML forms. One form makes GET request where as the second form makes a POST request. In real world scenarios you will need to make use of both methods for form processing.
+
+1. Goto website > Mapping Template
+1. Testing __GET Form__
+    - Enter a custom message into the text field. `This is my test GET Request to Lambda`
+    - Click 'Submit Query'
+1. Testing __POST Form__
+    - Enter a custom message into the text field. `This is my test POST request to Lambda via API Gateway and S3`
 
 ##
 ##
