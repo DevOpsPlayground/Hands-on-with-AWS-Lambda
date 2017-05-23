@@ -92,8 +92,21 @@ __AWS Services:__ S3 (Static Web hosting)
    - `http://<your name>.playground11.s3-website-us-west-2.amazonaws.com`
 1. Lab End.
 
+`
 
 
+
+
+
+
+
+
+
+
+
+
+
+`
 
 # Lab-002 - CORS - Sharing resources between s3 Buckets
 
@@ -524,15 +537,6 @@ __AWS Services:__ S3, Lambda, API Gateway,
        - Click 'Next'
     1. __Set Properties__
        - Accept defaults, click 'Upload'
-
-
-
-
-
-
-
-
-
 
 
 # Lab-005 - Kinesis, Realtime Data Processing wth Lambda, DynamoDB and API Gateway
