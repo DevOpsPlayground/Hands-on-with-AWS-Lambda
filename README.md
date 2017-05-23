@@ -58,13 +58,22 @@ Some labs will require having access to a javascript to see Browser errors like 
 1. Check 'Show Develop menu in menu bar' (see image Safari Advanced Preferences red box)
 1. Safari menu bar should now show as in 'Safari Menu Bar' image below
 
-#### Safari Advanced Preferences
+#### Image: Safari Advanced Preferences
 ![Safari Advanced Preferences Pane](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_adv_pane.png)
 
-#### Safari Menu bar
+#### Image: Safari Menu bar
 ![Safari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
 
-
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
 
 # Lab-001 - Build Static Website with s3 Bucket
 
