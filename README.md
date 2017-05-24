@@ -14,6 +14,13 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 
 Each step will be associated with a Lab to complete build on the previous lab to progress. A Completed lab website is a available for view from the link above 'Sample Site'. All labs have been tested with the `US Oregon` region.
 
+## Checkout code from GitHub
+
+```bash
+git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
+cd devopsplayground11-lambda
+```
+
 ## Labs
 
 1. [Lab-001 - Build Static Website with s3 Bucket](doc/lab-001.md)
@@ -57,12 +64,7 @@ Some labs will require having access to a javascript to see Browser errors like 
 ![Safari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
 
 
-## Checkout code from GitHub
 
-```bash
-git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
-cd devopsplayground11-lambda
-```
 
 
 # What is Serverless ?
