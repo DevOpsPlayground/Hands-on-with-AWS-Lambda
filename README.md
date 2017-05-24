@@ -67,7 +67,7 @@ cd devopsplayground11-lambda
 
 # What is Serverless ?
 
-A computing model where the existence of servers are hidden from developers. Within AWS eco-system Lambda is only serverless service. The the purpose of these labs we will look at S3, Lambda, and API Gateway.
+A computing model where the existence of servers are hidden from developers. Within AWS eco-system Lambda is __not__ the only serverless service. For the purpose of these labs we will look at S3, Lambda, and API Gateway to produce a functional website.
 
 - __Storage__ - S3
 - __Compute__ - Lambda
