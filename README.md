@@ -1,6 +1,6 @@
 # Hands On Serverless Computing with Lambda
 
-[Sample Site](http://static.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/index.html) | [AWS Console](https://devopsplayground.signin.aws.amazon.com/console)
+[Sample Site](http://static.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/index.html) | [AWS Console](https://devopsplayground.signin.aws.amazon.com/console) | [lab-001](doc/lab-001.md) | [lab-002](doc/lab-002.md) | [lab-003](doc/lab-003.md) | [lab-004](doc/lab-004.md)
 
 ## Login
 
@@ -14,12 +14,28 @@ The topics for this hands-on session will be AWS Lambda, function as a service (
 
 Each step will be associated with a Lab to complete build on the previous lab to progress. A Completed lab website is a available for view from the link above 'Sample Site'. All labs have been tested with the `US Oregon` region.
 
+# What is Serverless ?
+
+A computing model where the existence of servers are hidden from developers. Within AWS eco-system Lambda is __not__ the only serverless service. For the purpose of these labs we will look at S3, Lambda, and API Gateway to produce a functional website.
+
+- __Storage__ - S3
+- __Compute__ - Lambda
+- __Database__ - DynamoDB, ElasticCache
+- __API Proxy__ - API Gateway
+- __Analytics__ - AWS Kinesis
+- __Messaging & Queues__ - AWS SNS, SQS
+- __State Management__ - AWS Step Functions
+- __Diagnostics__ - AWS X-Ray
+
+
 ## Checkout code from GitHub
 
 ```bash
 git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
+
+## Download [link for labs](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda/archive/master.zip)
 
 ## Labs
 
@@ -62,20 +78,3 @@ Some labs will require having access to a javascript to see Browser errors like 
 
 #### Image: Safari Menu bar
 ![Safari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
-
-
-
-
-
-# What is Serverless ?
-
-A computing model where the existence of servers are hidden from developers. Within AWS eco-system Lambda is __not__ the only serverless service. For the purpose of these labs we will look at S3, Lambda, and API Gateway to produce a functional website.
-
-- __Storage__ - S3
-- __Compute__ - Lambda
-- __Database__ - DynamoDB, ElasticCache
-- __API Proxy__ - API Gateway
-- __Analytics__ - AWS Kinesis
-- __Messaging & Queues__ - AWS SNS, SQS
-- __State Management__ - AWS Step Functions
-- __Diagnostics__ - AWS X-Ray
