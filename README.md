@@ -2,11 +2,7 @@
 
 [Sample Site](http://static.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/index.html) | [AWS Console](https://devopsplayground.signin.aws.amazon.com/console) | [lab-001](doc/lab-001.md) | [lab-002](doc/lab-002.md) | [lab-003](doc/lab-003.md) | [lab-004](doc/lab-004.md)
 
-## Login
-
-- __AWS Console:__ `https://devopsplayground.signin.aws.amazon.com/console`
-- __Username:__ `<TBA>`
-- __Password:__ `<TBA>`
+# Introduction
 
 The topics for this hands-on session will be AWS Lambda, function as a service (FaaS). During this Playground you will create a website hosted on AWS S3 using AWS Lambda and Amazon API Gateway to add dynamic functionality to the site.
 
@@ -27,6 +23,12 @@ A computing model where the existence of servers are hidden from developers. Wit
 - __State Management__ - AWS Step Functions
 - __Diagnostics__ - AWS X-Ray
 
+
+## Login
+
+- __AWS Console:__ `https://devopsplayground.signin.aws.amazon.com/console`
+- __Username:__ `<TBA>`
+- __Password:__ `<TBA>`
 
 ## Checkout code from GitHub
 
