@@ -2,7 +2,7 @@
 
 [Sample Site](http://static.meetup.ecs-digital.co.uk.s3-website-us-west-2.amazonaws.com/index.html) | [AWS Console](https://devopsplayground.signin.aws.amazon.com/console)
 
-#### Login
+## Login
 
 - __AWS Console:__ `https://devopsplayground.signin.aws.amazon.com/console`
 - __Username:__ `<TBA>`
@@ -22,14 +22,15 @@ Each step will be associated with a Lab to complete build on the previous lab to
 1. [Lab-004 - Posting Data with Lambda](doc/lab-004.md)
 
 
-### Prerequisites
+## Prerequisites
 - Login to AWS account
 - Permissions to create S3 Buckets
 - Permissions to write and execute lambda functions
+- Permission to create API Gateway
 - __Region:__ Oregon
 
 
-### IAM Roles needed for Labs
+## IAM Roles needed for Labs
 
 If you attempt the labs in your own AWS account you will need to create the following roles:
 
@@ -39,14 +40,6 @@ If you attempt the labs in your own AWS account you will need to create the foll
 - AWSLambdaExecute
 
 ![IAM Roles needed for Labs](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-iam-roles.png)
-
-### Checkout code from GitHub
-
-```bash
-git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
-cd devopsplayground11-lambda
-```
-
 
 ###  Safari : Enable the hidden Develop menu
 
@@ -62,6 +55,14 @@ Some labs will require having access to a javascript to see Browser errors like 
 
 #### Image: Safari Menu bar
 ![Safari Menu](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/safari_menu.png)
+
+
+## Checkout code from GitHub
+
+```bash
+git clone https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda.git
+cd devopsplayground11-lambda
+```
 
 
 # What is Serverless ?
