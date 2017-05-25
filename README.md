@@ -2,6 +2,9 @@
 
 [Sample Site](http://meetup.playground11.s3-website-us-west-2.amazonaws.com) | [AWS Console](https://devopsplayground.signin.aws.amazon.com/console) | [lab-001](doc/lab-001.md) | [lab-002](doc/lab-002.md) | [lab-003](doc/lab-003.md) | [lab-004](doc/lab-004.md)
 
+# Short Url: http://goo.gl/CRJlwD
+
+
 # Introduction
 
 The topics for this hands-on session will be AWS Lambda, function as a service (FaaS). During this Playground you will create a website hosted on AWS S3 using AWS Lambda and Amazon API Gateway to add dynamic functionality to the site.
