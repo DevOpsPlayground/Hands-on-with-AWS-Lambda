@@ -39,6 +39,10 @@ cd devopsplayground11-lambda
 
 ## Download [link for labs](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda/archive/master.zip)
 
+```bash
+curl -o 'playground11.zip' https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda/archive/master.zip
+```
+
 ## Labs
 
 1. [Lab-001 - Build Static Website with s3 Bucket](doc/lab-001.md)
