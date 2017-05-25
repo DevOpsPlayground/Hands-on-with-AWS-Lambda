@@ -66,9 +66,9 @@ If you attempt the labs in your own AWS account you will need to create the foll
 
 ![IAM Roles needed for Labs](https://raw.githubusercontent.com/ForestTechnologiesLtd/devopsplayground11-lambda/master/diagrams/pg11-iam-roles.png)
 
-###  Safari : Enable the hidden Develop menu
+###  Safari: Enable the hidden Develop menu
 
-Some labs will require having access to a javascript to see Browser errors like lab-002 for Cross Origin Resource Sharing. Safari has these development tools built-in however they need to be enabled.
+Some labs will require having access to a web browser console to see Browser errors like lab-002 and labb-003 for Cross Origin Resource Sharing. Safari has these development tools built-in however they need to be enabled.
 
 #### Steps
 1. Safari > Preferences
