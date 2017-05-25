@@ -23,6 +23,12 @@ A computing model where the existence of servers are hidden from developers. Wit
 - __State Management__ - AWS Step Functions
 - __Diagnostics__ - AWS X-Ray
 
+# What Services Labs are covering?
+
+- __S3 - Static Web hosting:__ Hosting a static website on S3 bucket.
+- __Lambda:__ Creating a lambda function, that generates a random number and another function that processes form GET and PUT requests.
+- __API Gateway:__ Using API Gateway to expose lambda function to static website hosted on S3 bucket.
+
 
 ## Login
 
