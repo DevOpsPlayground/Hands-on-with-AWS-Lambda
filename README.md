@@ -40,8 +40,9 @@ cd devopsplayground11-lambda
 ## Download [link for labs](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda/archive/master.zip)
 
 ```bash
-curl -o 'playground11.zip' https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda/archive/master.zip
+wget --output-document  playground11.zip --quiet https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda/archive/master.zip
 ```
+
 
 ## Labs
 
