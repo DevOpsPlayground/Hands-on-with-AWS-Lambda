@@ -45,8 +45,7 @@ git clone https://github.com/ecsdigital/devopsplayground11-lambda.git
 cd devopsplayground11-lambda
 ```
 
-## Download [link for labs](https://github.com/ForestTechnologiesLtd/devopsplayground11-lambda/archive/master.zip)
-## Download [link for labs](https://codeload.github.com/ecsdigital/devopsplayground11-lambda/zip/master)
+## Download [link for labs](https://github.com/ecsdigital/devopsplayground11-lambda/archive/master.zip)
 
 ```bash
 wget --output-document  playground11.zip --quiet https://github.com/ecsdigital/devopsplayground11-lambda/archive/master.zip
