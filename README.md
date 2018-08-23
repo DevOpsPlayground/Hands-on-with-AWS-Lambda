@@ -2,8 +2,7 @@
 
 [Sample Site](http://pg11.meetup.s3-website-us-west-2.amazonaws.com/index.html) | [AWS Console](https://ecsd-training.signin.aws.amazon.com/console) | [lab-001](doc/lab-001.md) | [lab-002](doc/lab-002.md) | [lab-003](doc/lab-003.md) | [lab-004](doc/lab-004.md)
 
-# Short Url: http://goo.gl/CRJlwD
-
+# Short Url: https://goo.gl/i468ot
 
 # Introduction
 
