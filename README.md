@@ -35,7 +35,7 @@ A computing model where the existence of servers are hidden from developers. Wit
 
 ## Login
 
-- __AWS Console:__ `https://devopsplayground.signin.aws.amazon.com/console`
+- __AWS Console:__ `https://ecsd-training.signin.aws.amazon.com/console`
 - __Username:__ `<TBA>`
 - __Password:__ `<TBA>`
 
